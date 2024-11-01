@@ -29,44 +29,6 @@ return {
         end
     },
     {
-        'williamboman/mason.nvim',
-        dependencies = {
-            'williamboman/mason-lspconfig.nvim',
-            'neovim/nvim-lspconfig',
-            'jay-babu/mason-nvim-dap.nvim',
-            'mfussenegger/nvim-dap'
-        },
-        config = function()
-            require('mason').setup({})
-            require('mason-lspconfig').setup({
-                ensure_installed = {
-                    'lua_ls', -- Lua
-                    'clangd'  -- C, C++
-                },
-                handlers = {
-                    function(server_name)
-                        require('lspconfig')[server_name].setup({})
-                    end,
-
-                    lua_ls = function()
-                        require('lspconfig').lua_ls.setup({
-                            settings = {
-                                Lua = {
-                                    diagnostics = { globals = { 'vim' } }
-                                }
-                            }
-                        })
-                    end
-
-                }
-            })
-            require("mason-nvim-dap").setup({
-                ensure_installed = { "codelldb" }, -- Installs codelldb for C debugging
-                automatic_setup = true,
-            })
-        end
-    },
-    {
         'hrsh7th/nvim-cmp',
         dependencies = {
             'hrsh7th/cmp-nvim-lsp'

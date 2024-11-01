@@ -1,10 +1,20 @@
 return {
     {
         "mfussenegger/nvim-dap",
+        dependencies = {
+        },
         config = function()
             local dap = require("dap")
 
             -- Configure C debugger to use Mason's codelldb installation
+            dap.adapters.codelldb = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+                    args = { "--port", "${port}" },
+                },
+            }
             dap.configurations.c = {
                 {
                     name = "Launch",
