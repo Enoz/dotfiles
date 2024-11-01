@@ -27,7 +27,6 @@ return {
                             ["if"] = "@function.inner",
                             ["ac"] = "@class.outer",
                             ["ic"] = "@class.inner",
-                            -- Add more mappings as needed
                         },
                     },
                 },
