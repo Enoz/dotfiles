@@ -32,7 +32,9 @@ return {
         'williamboman/mason.nvim',
         dependencies = {
             'williamboman/mason-lspconfig.nvim',
-            'neovim/nvim-lspconfig'
+            'neovim/nvim-lspconfig',
+            'jay-babu/mason-nvim-dap.nvim',
+            'mfussenegger/nvim-dap'
         },
         config = function()
             require('mason').setup({})
@@ -57,6 +59,10 @@ return {
                     end
 
                 }
+            })
+            require("mason-nvim-dap").setup({
+                ensure_installed = { "codelldb" }, -- Installs codelldb for C debugging
+                automatic_setup = true,
             })
         end
     },
