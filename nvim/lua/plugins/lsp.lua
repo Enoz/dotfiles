@@ -1,13 +1,6 @@
 return {
     {
         'neovim/nvim-lspconfig',
-        dependencies = {
-            'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim'
-
-        },
         config = function()
             -- Add cmp_nvim_lsp capabilities settings to lspconfig
             -- This should be executed before you configure any language server
@@ -37,8 +30,15 @@ return {
                     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
                 end,
             })
-
-
+        end
+    },
+    {
+        'williamboman/mason.nvim',
+        dependencies = {
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig'
+        },
+        config = function()
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {},
@@ -59,15 +59,20 @@ return {
 
                 }
             })
-
-            -- Autocomplete
+        end
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp'
+        },
+        config = function()
             local cmp = require('cmp')
 
             cmp.setup({
                 sources = {
                     { name = 'nvim_lsp' },
                 },
-                --    mapping = cmp.mapping.preset.insert({}),
                 mapping = {
                     ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
                     ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
@@ -91,6 +96,5 @@ return {
                 },
             })
         end
-    },
-
+    }
 }
