@@ -4,7 +4,6 @@
 
 Dependencies
  - ripgrep
- - unzip (for clangd)
 
 ```bash
 ln -s -f ~/dotfiles/nvim/ ~/.config/nvim

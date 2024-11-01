@@ -28,6 +28,24 @@ return {
                     args = {},
                 },
             }
+
+            -- Go debugger configuration
+            dap.adapters.delve = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = vim.fn.stdpath("data") .. "/mason/bin/dlv",
+                    args = { "dap", "--listen", "127.0.0.1:${port}" },
+                },
+            }
+            dap.configurations.go = {
+                {
+                    type = "delve",
+                    name = "Debug",
+                    request = "launch",
+                    program = "${file}",
+                },
+            }
         end,
     },
     {

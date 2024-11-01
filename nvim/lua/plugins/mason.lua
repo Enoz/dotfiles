@@ -3,15 +3,13 @@ return {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
-        'mfussenegger/nvim-dap',
-        'jay-babu/mason-nvim-dap.nvim',
+        'mfussenegger/nvim-dap'
     },
     config = function()
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'lua_ls', -- Lua
-                'clangd'  -- C, C++
             },
             handlers = {
                 function(server_name)
@@ -29,10 +27,6 @@ return {
                 end
 
             }
-        })
-        require("mason-nvim-dap").setup({
-            ensure_installed = { "codelldb" },     -- Installs codelldb for C debugging
-            automatic_setup = true,
         })
     end
 }
