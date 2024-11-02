@@ -28,6 +28,7 @@ return {
                     args = {},
                 },
             }
+            dap.configurations.cpp = dap.configurations.c
 
             -- Go debugger configuration
             dap.adapters.delve = {
