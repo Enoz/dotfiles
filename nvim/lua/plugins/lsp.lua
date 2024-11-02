@@ -31,15 +31,26 @@ return {
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp'
+            'hrsh7th/cmp-nvim-lsp',     -- LSP completions
+            'L3MON4D3/LuaSnip',         -- Snippet engine
+            'saadparwaiz1/cmp_luasnip', -- Snippet completions
+            'hrsh7th/cmp-path',         -- File path completions
         },
         config = function()
             local cmp = require('cmp')
+            local luasnip = require('luasnip')
 
             cmp.setup({
-                sources = {
-                    { name = 'nvim_lsp' },
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
                 },
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = 'path' },
+                }),
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<CR>"] = cmp.mapping.confirm({
@@ -49,6 +60,8 @@ return {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
+                        elseif luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
                         else
                             fallback()
                         end
@@ -56,6 +69,8 @@ return {
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
                         else
                             fallback()
                         end
@@ -65,14 +80,7 @@ return {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
-
-                snippet = {
-                    expand = function(args)
-                        -- You need Neovim v0.10 to use vim.snippet
-                        vim.snippet.expand(args.body)
-                    end,
-                },
             })
-        end
+       end
     }
 }
