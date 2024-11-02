@@ -1,11 +1,13 @@
 return {
-
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+        build = ":TSUpdate",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects", -- Add textobjects as a dependency
+        },
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = {},
+                ensure_installed = { "c", "cpp", "python" }, -- Specify the languages you want
                 highlight = {
                     enable = true,
                 },
@@ -28,3 +30,4 @@ return {
         end,
     },
 }
+
