@@ -44,7 +44,9 @@ return {
                     type = "delve",
                     name = "Debug",
                     request = "launch",
-                    program = "${file}",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    end,
                 },
             }
         end,
