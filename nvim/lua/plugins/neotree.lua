@@ -8,10 +8,11 @@ return {
     },
     cmd = 'Neotree',
     keys = {
-        { '\\', ':Neotree focus reveal<CR>', desc = 'NeoTree reveal', silent = true },
+        { '\\', ':Neotree position=current<CR>', desc = 'NeoTree reveal', silent = true },
     },
     opts = {
         filesystem = {
+            use_libuv_file_watcher = true,
             window = {
                 mappings = {
                     ['\\'] = 'close_window',
