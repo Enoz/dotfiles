@@ -8,7 +8,7 @@ return {
     },
     cmd = 'Neotree',
     keys = {
-        { '\\', ':Neotree position=current<CR>', desc = 'NeoTree reveal', silent = true },
+        { '\\', ':Neotree focus reveal <CR>', desc = 'NeoTree reveal', silent = true },
     },
     opts = {
         filesystem = {
