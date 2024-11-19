@@ -33,11 +33,13 @@ return {
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp',        -- LSP completions
-            'L3MON4D3/LuaSnip',            -- Snippet engine
-            'saadparwaiz1/cmp_luasnip',    -- Snippet completions
-            'hrsh7th/cmp-path',            -- File path completions
-            'rafamadriz/friendly-snippets' -- Friendly snippets
+            'hrsh7th/cmp-nvim-lsp',         -- LSP completions
+            'L3MON4D3/LuaSnip',             -- Snippet engine
+            'saadparwaiz1/cmp_luasnip',     -- Snippet completions
+            'hrsh7th/cmp-path',             -- File path completions
+            'rafamadriz/friendly-snippets', -- Friendly snippets
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
         },
         config = function()
             local cmp = require('cmp')
@@ -53,7 +55,9 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
+                    { name = 'buffer' },
                     { name = 'path' },
+                    { name = 'nvim_lsp_signature_help' }
                 }),
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),
