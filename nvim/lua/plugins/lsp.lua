@@ -37,7 +37,6 @@ return {
             'L3MON4D3/LuaSnip',            -- Snippet engine
             'saadparwaiz1/cmp_luasnip',    -- Snippet completions
             'hrsh7th/cmp-path',            -- File path completions
-            'hrsh7th/cmp-buffer',          -- Buffer completions
             'rafamadriz/friendly-snippets' -- Friendly snippets
         },
         config = function()
@@ -54,7 +53,6 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
-                    { name = 'buffer' }, -- Added buffer source
                     { name = 'path' },
                 }),
                 mapping = cmp.mapping.preset.insert({
