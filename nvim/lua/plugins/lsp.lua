@@ -40,12 +40,27 @@ return {
             'rafamadriz/friendly-snippets', -- Friendly snippets
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-nvim-lsp-signature-help',
+            'hrsh7th/cmp-cmdline'
         },
         config = function()
             local cmp = require('cmp')
             local luasnip = require('luasnip')
             require("luasnip.loaders.from_vscode").lazy_load()
 
+            -- `:` cmdline setup.
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    {
+                        name = 'cmdline',
+                        option = {
+                            ignore_cmds = { 'Man', '!' }
+                        }
+                    }
+                })
+            })
             cmp.setup({
                 snippet = {
                     expand = function(args)
