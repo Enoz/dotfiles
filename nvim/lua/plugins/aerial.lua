@@ -11,6 +11,6 @@ return
         require("aerial").setup({
             autojump = true
         })
-        vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle float<CR>")
+        vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle float<CR>", { desc = "Toggle Aerial Menu" })
     end
 }
