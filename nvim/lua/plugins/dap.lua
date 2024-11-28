@@ -2,11 +2,12 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = {
+            "theHamsta/nvim-dap-virtual-text"
         },
         config = function()
             local dap = require("dap")
+            require("nvim-dap-virtual-text").setup()
 
-            -- Configure C debugger to use Mason's codelldb installation
             dap.adapters.codelldb = {
                 type = "server",
                 port = "${port}",
@@ -30,7 +31,6 @@ return {
             }
             dap.configurations.cpp = dap.configurations.c
 
-            -- Go debugger configuration
             dap.adapters.delve = {
                 type = "server",
                 port = "${port}",
