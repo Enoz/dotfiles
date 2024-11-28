@@ -2,59 +2,15 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = {
-            "theHamsta/nvim-dap-virtual-text"
+            "theHamsta/nvim-dap-virtual-text",
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
+            "rcarriga/nvim-dap-ui"
+
         },
         config = function()
-            local dap = require("dap")
             require("nvim-dap-virtual-text").setup()
 
-            dap.adapters.codelldb = {
-                type = "server",
-                port = "${port}",
-                executable = {
-                    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-                    args = { "--port", "${port}" },
-                },
-            }
-            dap.configurations.c = {
-                {
-                    name = "Launch",
-                    type = "codelldb",
-                    request = "launch",
-                    program = function()
-                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-                    end,
-                    cwd = "${workspaceFolder}",
-                    stopOnEntry = false,
-                    args = {},
-                },
-            }
-            dap.configurations.cpp = dap.configurations.c
-
-            dap.adapters.delve = {
-                type = "server",
-                port = "${port}",
-                executable = {
-                    command = vim.fn.stdpath("data") .. "/mason/bin/dlv",
-                    args = { "dap", "--listen", "127.0.0.1:${port}" },
-                },
-            }
-            dap.configurations.go = {
-                {
-                    type = "delve",
-                    name = "Debug",
-                    request = "launch",
-                    program = function()
-                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-                    end,
-                },
-            }
-        end,
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-        config = function()
             local dap, dapui = require("dap"), require("dapui")
 
             dapui.setup()
@@ -80,5 +36,6 @@ return {
             end, { desc = "Toggle Breakpoint (condition)" })
             vim.keymap.set("n", "<F8>", dapui.toggle, { desc = "DAP Toggle UI" })
         end,
-    },
+    }
+
 }
