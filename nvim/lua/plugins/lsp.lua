@@ -2,6 +2,7 @@ return {
     {
         'neovim/nvim-lspconfig',
         config = function()
+            vim.diagnostic.config({ virtual_text = false })
             local lspconfig_defaults = require('lspconfig').util.default_config
 
 
@@ -110,6 +111,13 @@ return {
                 },
             })
         end
+    },
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy", -- Or `LspAttach`
+        priority = 1000,    -- needs to be loaded in first
+        config = function()
+            require('tiny-inline-diagnostic').setup()
+        end
     }
-
 }
