@@ -3,14 +3,6 @@ return {
         'neovim/nvim-lspconfig',
         config = function()
             vim.diagnostic.config({ virtual_text = false })
-            local lspconfig_defaults = require('lspconfig').util.default_config
-
-
-            lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-                'force',
-                lspconfig_defaults.capabilities,
-                require('cmp_nvim_lsp').default_capabilities()
-            )
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'LSP actions',
@@ -76,9 +68,10 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
-                    { name = 'buffer' },
                     { name = 'path' },
                     { name = 'nvim_lsp_signature_help' }
+                }, {
+                    { name = 'buffer' }, -- Only show buffer when none of the above sources are showing anything
                 }),
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),

@@ -4,7 +4,8 @@ return {
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
         'mfussenegger/nvim-dap',
-        'jay-babu/mason-nvim-dap.nvim'
+        'jay-babu/mason-nvim-dap.nvim',
+        'hrsh7th/cmp-nvim-lsp'
     },
     config = function()
         require('mason').setup({})
@@ -19,13 +20,18 @@ return {
                 -- https://github.com/jay-babu/mason-nvim-dap.nvim?tab=readme-ov-file#advanced-customization
             }
         })
+
+
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'lua_ls', -- Lua
             },
             handlers = {
                 function(server_name)
-                    require('lspconfig')[server_name].setup({})
+                    require('lspconfig')[server_name].setup({
+                        capabilities = capabilities
+                    })
                 end,
 
                 lua_ls = function()
