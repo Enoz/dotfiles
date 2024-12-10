@@ -1,6 +1,6 @@
 -- Leaders
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Line Numbers
 vim.opt.number = true
@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "auto:3"
 
 -- Enables mouse mode for (a)ll vim modes
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Better colors
 vim.opt.termguicolors = true
@@ -33,4 +33,4 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
