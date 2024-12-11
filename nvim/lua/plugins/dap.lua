@@ -2,13 +2,11 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"theHamsta/nvim-dap-virtual-text",
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
 		},
 		config = function()
-			require("nvim-dap-virtual-text").setup()
 
 			local dap, dapui = require("dap"), require("dapui")
 
@@ -25,8 +23,8 @@ return {
 
 			-- Debugging Keybindings
 			vim.keymap.set("n", "<F1>", dap.continue, { desc = "DAP Continue" })
-			vim.keymap.set("n", "<F2>", dap.step_over, { desc = "DAP Step Over" })
-			vim.keymap.set("n", "<F3>", dap.step_into, { desc = "Dap Step Into" })
+			vim.keymap.set("n", "<F2>", dap.step_into, { desc = "DAP Step Into" })
+			vim.keymap.set("n", "<F3>", dap.step_over, { desc = "Dap Step Over" })
 			vim.keymap.set("n", "<F4>", dap.step_out, { desc = "Dap Step Out" })
 			vim.keymap.set("n", "<F5>", dap.terminate, { desc = "Dap Terminate" })
 			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
