@@ -10,6 +10,7 @@ return {
 		-- BUT, if you are already focused into nvim-tree, when "\" will instead close its
 		vim.keymap.set("n", "\\", "<cmd>:NvimTreeFindFile<CR>", { desc = "Open Nvim Tree", silent = true })
 		require("nvim-tree").setup({
+			view = { width = { min = 30 } },
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 				api.config.mappings.default_on_attach(bufnr)
