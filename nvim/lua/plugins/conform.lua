@@ -24,17 +24,8 @@ return {
 			},
 		})
 
-		vim.api.nvim_create_autocmd("BufNew", {
-			desc = "Conform Actions",
-			callback = function(event)
-				local opts = function(desc)
-					return { buffer = event.buf, desc = desc }
-				end
-
-				vim.keymap.set({ "n", "x" }, "gf", function()
-					require("conform").format({ bufnr = event.buf })
-				end, opts("Conform Format Code"))
-			end,
-		})
+		vim.keymap.set({ "n", "x" }, "gf", function()
+			require("conform").format()
+		end, { desc = "Conform Format" })
 	end,
 }
