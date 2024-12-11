@@ -18,6 +18,7 @@ return {
 				vue = { "prettierd" },
 				markdown = { "prettierd" },
 				go = { "goimports", "gofumpt" },
+				cucumber = { "reformat-gherkin" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
