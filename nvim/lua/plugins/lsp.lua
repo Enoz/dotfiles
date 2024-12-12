@@ -15,12 +15,6 @@ return {
 					vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts("LSP Show Declaration"))
 					vim.keymap.set(
 						"n",
-						"gi",
-						"<cmd>lua vim.lsp.buf.implementation()<cr>",
-						opts("LSP Show Implementation")
-					)
-					vim.keymap.set(
-						"n",
 						"go",
 						"<cmd>lua vim.lsp.buf.type_definition()<cr>",
 						opts("LSP Show Type Definition")

@@ -25,6 +25,13 @@ return {
 					builtin.lsp_references,
 					{ desc = "Telescope LSP References", buffer = event.buf }
 				)
+
+				vim.keymap.set(
+					"n",
+					"gi",
+					builtin.lsp_implementations,
+					{ desc = "Telescope LSP Implementations", buffer = event.buf }
+				)
 			end,
 		})
 	end,
