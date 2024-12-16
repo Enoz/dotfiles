@@ -7,8 +7,8 @@ return {
 		git_blame.setup({
 			display_virtual_text = 0,
 		})
-		vim.keymap.set("n", "<leader>go", "<cmd>:GitBlameOpenFileURL<CR>", { desc = "Git Open File" })
-		vim.keymap.set("n", "<leader>gc", "<cmd>:GitBlameCopyFileURL<CR>", { desc = "Git Copy File" })
+		vim.keymap.set("n", "<leader>lo", "<cmd>:GitBlameOpenFileURL<CR>", { desc = "Git Open File" })
+		vim.keymap.set("n", "<leader>lc", "<cmd>:GitBlameCopyFileURL<CR>", { desc = "Git Copy File" })
 		require("lualine").setup({
 			sections = {
 				lualine_c = {
