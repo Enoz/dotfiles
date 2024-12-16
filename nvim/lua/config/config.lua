@@ -36,10 +36,16 @@ vim.opt.smartindent = true
 vim.opt.clipboard = "unnamedplus"
 
 -- Yank highlight
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
+
+-- Quickfix keymaps
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { silent = true })
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { silent = true })
+vim.keymap.set("n", "<M-o>", "<cmd>copen<CR>", { silent = true })
+vim.keymap.set("n", "<M-c>", "<cmd>cclose<CR>", { silent = true })

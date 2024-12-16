@@ -6,6 +6,7 @@ return {
 
 		git_blame.setup({
 			display_virtual_text = 0,
+            gitblame_delay = 1
 		})
 		vim.keymap.set("n", "<leader>lo", "<cmd>:GitBlameOpenFileURL<CR>", { desc = "Git Open File" })
 		vim.keymap.set("n", "<leader>lc", "<cmd>:GitBlameCopyFileURL<CR>", { desc = "Git Copy File" })
