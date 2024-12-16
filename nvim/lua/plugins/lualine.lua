@@ -9,6 +9,9 @@ return {
 		})
 		vim.keymap.set("n", "<leader>lo", "<cmd>:GitBlameOpenFileURL<CR>", { desc = "Git Open File" })
 		vim.keymap.set("n", "<leader>lc", "<cmd>:GitBlameCopyFileURL<CR>", { desc = "Git Copy File" })
+		vim.keymap.set("v", "<leader>lo", "<cmd>'<,'>:GitBlameOpenFileURL<CR>", { desc = "Git Open File" })
+		vim.keymap.set("v", "<leader>lc", "<cmd>'<,'>:GitBlameCopyFileURL<CR>", { desc = "Git Copy File" })
+
 		require("lualine").setup({
 			sections = {
 				lualine_c = {
