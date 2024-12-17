@@ -20,7 +20,7 @@ return {
 			},
 		})
 
-		local capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls", -- Lua
