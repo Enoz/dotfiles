@@ -1,9 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = { "saghen/blink.cmp" },
 		config = function()
 			vim.diagnostic.config({ virtual_text = false })
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				desc = "LSP actions",
 				callback = function(event)
