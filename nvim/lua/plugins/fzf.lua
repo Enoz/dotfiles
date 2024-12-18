@@ -9,16 +9,10 @@ return {
 		vim.keymap.set("n", "<leader>fg", require("fzf-lua").live_grep, { desc = "Fzf Live Grep" })
 		vim.keymap.set("n", "<leader>fb", require("fzf-lua").buffers, { desc = "Fzf Buffers" })
 		vim.keymap.set("n", "<leader>fh", require("fzf-lua").help_tags, { desc = "Fzf Help" })
-
-		vim.api.nvim_create_autocmd("LspAttach", {
-			desc = "LSP Fzf actions",
-			callback = function(event)
-				vim.keymap.set("n", "gr", require("fzf-lua").lsp_references, { desc = "Fzf LSP References" })
-				vim.keymap.set("n", "gi", require("fzf-lua").lsp_implementations, { desc = "Fzf LSP Implementations" })
-				vim.keymap.set("n", "gd", require("fzf-lua").lsp_definitions, { desc = "Fzf LSP Definitions" })
-				vim.keymap.set("n", "gD", require("fzf-lua").lsp_declarations, { desc = "Fzf LSP Declarations" })
-				vim.keymap.set("n", "gt", require("fzf-lua").lsp_typedefs, { desc = "Fzf LSP Type Definitions" })
-			end,
-		})
+		vim.keymap.set("n", "gr", require("fzf-lua").lsp_references, { desc = "Fzf LSP References" })
+		vim.keymap.set("n", "gi", require("fzf-lua").lsp_implementations, { desc = "Fzf LSP Implementations" })
+		vim.keymap.set("n", "gd", require("fzf-lua").lsp_definitions, { desc = "Fzf LSP Definitions" })
+		vim.keymap.set("n", "gD", require("fzf-lua").lsp_declarations, { desc = "Fzf LSP Declarations" })
+		vim.keymap.set("n", "gt", require("fzf-lua").lsp_typedefs, { desc = "Fzf LSP Type Definitions" })
 	end,
 }
