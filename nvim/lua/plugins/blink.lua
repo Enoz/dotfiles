@@ -7,11 +7,11 @@ return {
 		enabled = function()
 			return vim.bo.buftype ~= "prompt" and vim.b.completion ~= false and vim.bo.filetype ~= "DressingInput"
 		end,
-		keymap = {
-			preset = "enter",
-			["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
-		},
+		-- keymap = {
+		-- 	preset = "enter",
+		-- 	["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+		-- 	["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+		-- },
 		appearance = {
 			nerd_font_variant = "normal",
 		},
