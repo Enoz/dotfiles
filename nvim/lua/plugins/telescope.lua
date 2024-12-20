@@ -15,24 +15,7 @@ return {
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-
-		vim.api.nvim_create_autocmd("LspAttach", {
-			desc = "LSP telescope actions",
-			callback = function(event)
-				vim.keymap.set(
-					"n",
-					"gr",
-					builtin.lsp_references,
-					{ desc = "Telescope LSP References", buffer = event.buf }
-				)
-
-				vim.keymap.set(
-					"n",
-					"gi",
-					builtin.lsp_implementations,
-					{ desc = "Telescope LSP Implementations", buffer = event.buf }
-				)
-			end,
-		})
+		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Telescope LSP References" })
+		vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope LSP Implementations" })
 	end,
 }
