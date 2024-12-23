@@ -14,6 +14,9 @@ return {
 		keymap = {
 			preset = "none",
 
+			["<C-n>"] = {},
+			["<C-p>"] = {},
+
 			["<C-CR>"] = { "select_and_accept" },
 
 			["<C-j>"] = { "select_next", "fallback" },
