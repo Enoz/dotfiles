@@ -13,12 +13,13 @@ return {
 		},
 		keymap = {
 			preset = "none",
+
 			["<C-CR>"] = { "select_and_accept" },
 
 			["<C-j>"] = { "select_next", "fallback" },
-
 			["<C-k>"] = { "select_prev", "fallback" },
 
+			["<C-Space>"] = { "show" },
 			["<C-e>"] = { "hide" },
 
 			["<Tab>"] = { "snippet_forward", "fallback" },
