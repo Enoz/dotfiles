@@ -5,8 +5,12 @@ return {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
+			"williamboman/mason.nvim", -- Required so Mason PATH is set for vim.fn.exepath
 		},
 		config = function()
+			require("plugins.dap.configurations.codelldb")
+			require("plugins.dap.configurations.delve")
+			require("plugins.dap.configurations.configuration")
 
 			local dap, dapui = require("dap"), require("dapui")
 

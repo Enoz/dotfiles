@@ -26,6 +26,9 @@ keybind = ctrl+shift+right=next_tab
 keybind = ctrl+shift+-=close_surface
 keybind = global:f11=toggle_fullscreen
 
+# Unbind
+keybind = ctrl+enter=unbind
+
 # Options
 
 resize-overlay-duration=0s
@@ -33,3 +36,6 @@ gtk-titlebar=false
 macos-titlebar-style=tabs
 auto-update=off
 unfocused-split-opacity=0.85
+clipboard-read=allow
+clipboard-write=allow
+clipboard-paste-protection=false
