@@ -24,7 +24,7 @@ return {
 			},
 		})
 
-		vim.keymap.set({ "n", "x" }, "gf", function()
+		vim.keymap.set({ "n", "x" }, "<leader>c", function()
 			require("conform").format()
 		end, { desc = "Conform Format" })
 	end,
