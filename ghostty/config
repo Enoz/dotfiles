@@ -32,7 +32,7 @@ keybind = ctrl+enter=unbind
 # Options
 
 resize-overlay-duration=0s
-gtk-titlebar=false
+gtk-titlebar=true
 macos-titlebar-style=tabs
 auto-update=off
 unfocused-split-opacity=0.85
