@@ -1,3 +1,8 @@
+-- Title
+vim.opt.title = true
+vim.opt.titlelen = 0
+vim.opt.titlestring = [[%{v:progname} %f %h%m%r%w ]]
+
 -- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
