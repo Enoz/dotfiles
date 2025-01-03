@@ -12,7 +12,7 @@ dap.adapters.delve = function(callback, config)
 			type = "server",
 			port = "${port}",
 			executable = {
-				command = "dlv",
+				command = vim.fn.exepath("dlv"),
 				args = { "dap", "-l", "127.0.0.1:${port}", "--log", "--log-output=dap" },
 				detached = vim.fn.has("win32") == 0,
 			},
