@@ -1,8 +1,10 @@
 return {
-	"EdenEast/nightfox.nvim",
-	lazy = false,
-	priority = 1000,
+	"navarasu/onedark.nvim",
 	config = function()
-        vim.cmd.colorscheme("carbonfox")
+		require("onedark").setup({
+			style = "deep",
+		})
+		require("onedark").load()
+		vim.cmd("colorscheme onedark")
 	end,
 }
