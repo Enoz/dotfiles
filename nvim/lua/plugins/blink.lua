@@ -5,9 +5,6 @@ return {
 	dependencies = "rafamadriz/friendly-snippets",
 	version = "v0.*",
 	opts = {
-		enabled = function()
-			return vim.bo.buftype ~= "prompt" and vim.b.completion ~= false and vim.bo.filetype ~= "DressingInput"
-		end,
 		appearance = {
 			nerd_font_variant = "mono",
 		},
