@@ -25,6 +25,6 @@
   "render-markdown.nvim": { "branch": "main", "commit": "d7b646f2e6136d963e1bd3abbb9e2ac3fa90837a" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "dae2eac9d91464448b584c7949a31df8faefec56" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "98bea013e51a91db0b5f77bd887739a9a73dfddf" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "cdf1ac3a0ce30a4357699a6650dfae3b6ea31265" },
   "which-key.nvim": { "branch": "main", "commit": "1f8d414f61e0b05958c342df9b6a4c89ce268766" }
 }
