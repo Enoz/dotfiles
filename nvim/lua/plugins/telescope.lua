@@ -9,6 +9,18 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		require("telescope").setup()
+		require("telescope").setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<C-h>"] = "which_key",
+					},
+					n = {
+						["<C-h>"] = "which_key",
+					},
+				},
+			},
+		})
 		require("telescope").load_extension("fzf")
 
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
