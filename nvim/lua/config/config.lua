@@ -50,7 +50,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Quickfix keymaps
-vim.keymap.set("n", "<C-]>", "<cmd>cnext<CR>", { silent = true })
-vim.keymap.set("n", "<C-[>", "<cmd>cprev<CR>", { silent = true })
 vim.keymap.set("n", "<C-=>", "<cmd>copen<CR>", { silent = true })
 vim.keymap.set("n", "<C-->", "<cmd>cclose<CR>", { silent = true })

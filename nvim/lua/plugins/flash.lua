@@ -1,7 +1,21 @@
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		modes = {
+			char = {
+                -- Disable gray during F/T/f/t
+				highlight = { backdrop = false },
+				char_actions = function(motion)
+					return {
+						-- jump2d style: same case goes next, opposite case goes prev
+						[motion] = "next",
+						[motion:match("%l") and motion:upper() or motion:lower()] = "prev",
+					}
+				end,
+			},
+		},
+	},
 	keys = {
 		{
 			"s",
@@ -34,14 +48,6 @@ return {
 				require("flash").treesitter_search()
 			end,
 			desc = "Treesitter Search",
-		},
-		{
-			"<c-s>",
-			mode = { "c" },
-			function()
-				require("flash").toggle()
-			end,
-			desc = "Toggle Flash Search",
 		},
 	},
 }
