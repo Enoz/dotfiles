@@ -18,7 +18,6 @@ return {
 						"<cmd>lua vim.lsp.buf.type_definition()<cr>",
 						opts("LSP Show Type Definition")
 					)
-					vim.keymap.set("n", "gS", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts("LSP Signature Help"))
 					vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("LSP Rename"))
 					vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts("LSP Code Action"))
 				end,
