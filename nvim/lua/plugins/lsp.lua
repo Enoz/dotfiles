@@ -11,15 +11,7 @@ return {
 						return { buffer = event.buf, desc = desc }
 					end
 					vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts("LSP Show Info"))
-					vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts("LSP Show Declaration"))
-					vim.keymap.set(
-						"n",
-						"go",
-						"<cmd>lua vim.lsp.buf.type_definition()<cr>",
-						opts("LSP Show Type Definition")
-					)
-					vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("LSP Rename"))
-					vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts("LSP Code Action"))
+					vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("LSP Rename"))
 				end,
 			})
 		end,
