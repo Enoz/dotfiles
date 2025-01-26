@@ -10,8 +10,8 @@ return {
 					local opts = function(desc)
 						return { buffer = event.buf, desc = desc }
 					end
-					vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts("LSP Show Info"))
-					vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("LSP Rename"))
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("LSP Show Info"))
+					vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts("LSP Rename"))
 				end,
 			})
 		end,
