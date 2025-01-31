@@ -18,9 +18,3 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ```bash
 ln -s -f ~/dotfiles/kitty ~/.config/kitty
 ```
-
-## ghostty
-
-```bash
-ln -s -f ~/dotfiles/ghostty ~/.config/ghostty
-```
