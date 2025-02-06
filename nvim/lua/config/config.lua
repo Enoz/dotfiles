@@ -11,7 +11,6 @@ vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "auto:3"
-vim.opt.conceallevel = 0
 
 -- Enables mouse mode for (a)ll vim modes
 vim.opt.mouse = "a"
