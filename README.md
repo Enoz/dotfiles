@@ -2,11 +2,14 @@
 
 ## nvim
 
-Dependencies
+#### Dependencies
 
-- ripgrep
 - fzf
-- fd
+
+#### Optional Dependencies
+
+- rg (fzf)
+- fd (fzf)
 - wl-clipboard (for c&p in wayland using `"+y` to yank into the `+` (clipboard) register)
 
 ```bash
