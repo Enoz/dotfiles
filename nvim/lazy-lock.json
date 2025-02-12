@@ -1,9 +1,9 @@
 {
   "blink.cmp": { "branch": "main", "commit": "b6f11a0aa33e601c469a126e3ed6e35208fe3ea3" },
-  "conform.nvim": { "branch": "master", "commit": "a68240af6c402577bd534857b7151956f38fbc0e" },
-  "dressing.nvim": { "branch": "master", "commit": "7e9f10b8ad22862fb5fcb8d141dd84fd5f181f91" },
+  "conform.nvim": { "branch": "master", "commit": "c309423479f83f561d68d93d74c899f1683834f7" },
+  "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
-  "fzf-lua": { "branch": "main", "commit": "755d9e6eaa5a7fe2abee92b4b157f93fa3a349de" },
+  "fzf-lua": { "branch": "main", "commit": "562593abac4f2796d0cf622876527cfb8d274639" },
   "git-blame.nvim": { "branch": "master", "commit": "2883a7460f611c2705b23f12d58d398d5ce6ec00" },
   "lazy.nvim": { "branch": "main", "commit": "f15a93907ddad3d9139aea465ae18336d87f5ce6" },
   "lualine.nvim": { "branch": "master", "commit": "f4f791f67e70d378a754d02da068231d2352e5bc" },
