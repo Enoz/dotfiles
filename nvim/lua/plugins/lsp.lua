@@ -12,7 +12,7 @@ return {
 					end
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("LSP Show Info"))
 					vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts("LSP Rename"))
-					vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, opts("LSP Code Action"))
+					vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts("LSP Code Action"))
 				end,
 			})
 		end,

@@ -26,9 +26,9 @@ return {
 		vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf Help" })
 
 		--LSP Binds
-		vim.keymap.set("n", "<leader>fr", fzf.lsp_references, { desc = "Fzf LSP References" })
-		vim.keymap.set("n", "<leader>fi", fzf.lsp_implementations, { desc = "Fzf LSP Implementations" })
-		vim.keymap.set("n", "<leader>fd", fzf.lsp_definitions, { desc = "Fzf LSP Defenitions" })
-		vim.keymap.set("n", "<leader>fD", fzf.lsp_declarations, { desc = "Fzf LSP Declarations" })
+		vim.keymap.set("n", "gr", fzf.lsp_references, { desc = "Fzf LSP References" })
+		vim.keymap.set("n", "gi", fzf.lsp_implementations, { desc = "Fzf LSP Implementations" })
+		vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "Fzf LSP Defenitions" })
+		vim.keymap.set("n", "gD", fzf.lsp_declarations, { desc = "Fzf LSP Declarations" })
 	end,
 }
