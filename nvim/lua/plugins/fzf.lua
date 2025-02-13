@@ -6,10 +6,10 @@ return {
 			keymap = {
 				builtin = {
 					true,
-                    ["<C-S-j>"] = "preview-down",
-                    ["<C-S-k>"] = "preview-up",
-                    ["<C-S-d>"] = "preview-page-down",
-                    ["<C-S-u>"] = "preview-page-up"
+					["<C-S-j>"] = "preview-down",
+					["<C-S-k>"] = "preview-up",
+					["<C-S-d>"] = "preview-page-down",
+					["<C-S-u>"] = "preview-page-up",
 				},
 				fzf = {
 					true,
@@ -26,9 +26,10 @@ return {
 		vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf Help" })
 
 		--LSP Binds
-		vim.keymap.set("n", "gr", fzf.lsp_references, { desc = "Fzf LSP References" })
-		vim.keymap.set("n", "gi", fzf.lsp_implementations, { desc = "Fzf LSP Implementations" })
-		vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "Fzf LSP Defenitions" })
-		vim.keymap.set("n", "gD", fzf.lsp_declarations, { desc = "Fzf LSP Declarations" })
+		vim.keymap.set("n", "gr", fzf.lsp_references, { desc = "LSP References" })
+		vim.keymap.set("n", "gi", fzf.lsp_implementations, { desc = "LSP Implementations" })
+		vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "LSP Defenitions" })
+		vim.keymap.set("n", "gD", fzf.lsp_declarations, { desc = "LSP Declarations" })
+		vim.keymap.set("n", "gs", fzf.lsp_document_symbols, { desc = "LSP Symbols" })
 	end,
 }
