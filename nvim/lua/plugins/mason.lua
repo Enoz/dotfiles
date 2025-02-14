@@ -3,6 +3,15 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		{
+			"folke/lazydev.nvim", -- vim namespace
+			ft = "lua",
+			opts = {
+				library = {
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 	},
 	config = function()
 		require("mason").setup({})
@@ -15,16 +24,6 @@ return {
 				function(server_name)
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
-					})
-				end,
-
-				lua_ls = function()
-					require("lspconfig").lua_ls.setup({
-						settings = {
-							Lua = {
-								diagnostics = { globals = { "vim" } },
-							},
-						},
 					})
 				end,
 			},
