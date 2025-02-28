@@ -1,13 +1,17 @@
 ; Look into vertico, consult, orderless, emark, and marginalia
 
+;; Theme
+(load-theme `deeper-blue)
+
+;; Basic Emacs Options
+
 (setq inhibit-startup-message t)
 (setq enable-recurisve-minibuffers t)
-
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode -1)
-
+(global-display-line-numbers-mode t)
 (global-set-key (kbd "<escape>") `keyboard-escape-quit)
 
 ;; Set up package.el to work with MELPA
@@ -25,31 +29,34 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+;; Moves tmp files into /var and /etc/
 (use-package no-littering)
 
+;; Vim Keybindings
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
   :config
   (evil-mode))
 
+;; Better completion
 (use-package vertico
   :config
-  (vertico-mode))
+  (vertico-mode)
+  (keymap-set vertico-map "C-j" #'vertico-next)
+  (keymap-set vertico-map "C-k" #'vertico-previous)
+  (keymap-set vertico-map "C-d" #'vertico-scroll-up)
+  (keymap-set vertico-map "C-u" #'vertico-scroll-down))
 
+;; Completion descriptions
+(use-package marginalia
+  :init
+  (marginalia-mode))
 
-(load-theme `tango-dark)
+;; Consult
+(use-package consult)
 
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; Store automatic customisation options elsewhere
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
