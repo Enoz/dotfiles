@@ -1,6 +1,7 @@
 ; Look into vertico, consult, orderless, emark, and marginalia
 
 (setq inhibit-startup-message t)
+(setq enable-recurisve-minibuffers t)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -17,7 +18,7 @@
 
 (package-initialize)
 
-;; Initialize use-package for non-Linux
+;; Initialize use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
