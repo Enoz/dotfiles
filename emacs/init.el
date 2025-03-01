@@ -5,11 +5,20 @@
 
 (setq inhibit-startup-message t)
 (setq enable-recurisve-minibuffers t)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(tooltip-mode -1)
-(menu-bar-mode -1)
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
+(tooltip-mode 0)
+(menu-bar-mode 0)
+(which-key-mode t)
+
+;; Line Numbers
 (global-display-line-numbers-mode t)
+(dolist (mode `(org-mode-hook
+		term-mode-hook
+		shell-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 (global-set-key (kbd "<escape>") `keyboard-escape-quit)
 
 (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 120)
