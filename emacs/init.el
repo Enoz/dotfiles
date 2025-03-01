@@ -1,7 +1,5 @@
 ; Look into vertico, consult, orderless, emark, and marginalia
 
-;; Theme
-(load-theme `deeper-blue)
 
 ;; Basic Emacs Options
 
@@ -87,15 +85,18 @@
 ;; Consult
 (use-package consult)
 
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dark+ t))
+
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config (setq doom-modeline-bar-width 3
-                doom-modeline-enable-word-count t
-                doom-modeline-icon t
-                doom-modeline-major-mode-icon t
-                doom-modeline-major-mode-color-icon t
-                doom-modeline-lsp t))
+  :hook (after-init . doom-modeline-mode))
+
+
 ;; Store automatic customisation options elsewhere
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
