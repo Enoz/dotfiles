@@ -14,6 +14,8 @@
 (global-display-line-numbers-mode t)
 (global-set-key (kbd "<escape>") `keyboard-escape-quit)
 
+(set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 120)
+
 ;; Set up package.el to work with MELPA
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -85,6 +87,15 @@
 ;; Consult
 (use-package consult)
 
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config (setq doom-modeline-bar-width 3
+                doom-modeline-enable-word-count t
+                doom-modeline-icon t
+                doom-modeline-major-mode-icon t
+                doom-modeline-major-mode-color-icon t
+                doom-modeline-lsp t))
 ;; Store automatic customisation options elsewhere
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
