@@ -22,8 +22,6 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(global-set-key (kbd "<escape>") `keyboard-escape-quit)
-
 (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 120)
 
 ;; Set up package.el to work with MELPA
@@ -48,8 +46,16 @@
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 
 ;; Better completion visualization
 (use-package vertico
