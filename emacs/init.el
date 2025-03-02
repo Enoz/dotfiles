@@ -9,6 +9,9 @@
 (tool-bar-mode 0)
 (tooltip-mode 0)
 (menu-bar-mode 0)
+
+;; Which-Key
+(setq which-key-idle-delay 0.3)
 (which-key-mode t)
 
 ;; Line Numbers
