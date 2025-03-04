@@ -37,13 +37,15 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t)
 
 ;; Moves tmp files into /var and /etc/
-(use-package no-littering)
+(use-package no-littering
+  :ensure t)
+
 
 ;; Vim Keybindings
 (use-package evil
+  :ensure t
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
@@ -52,6 +54,7 @@
   (evil-mode))
 
 (use-package evil-collection
+  :ensure t
   :after evil
   :config
   (evil-collection-init))
@@ -59,6 +62,7 @@
 
 ;; Better completion visualization
 (use-package vertico
+  :ensure t
   :config
   (vertico-mode)
   (keymap-set vertico-map "C-j" #'vertico-next)
@@ -68,16 +72,19 @@
 
 ;; Fuzzier completion style 
 (use-package orderless
+  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))  
 
 ;; Rich Minibuffer annotations 
 (use-package marginalia
+  :ensure t
   :init
   (marginalia-mode))
 
 (use-package embark
+  :ensure t
   :bind
   (("C-'" . embark-act)         ;; pick some comfortable binding
    ("C-;" . embark-dwim)        ;; good alternative: M-.
@@ -96,11 +103,13 @@
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
+  :ensure t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
 ;; Consult
-(use-package consult)
+(use-package consult
+  :ensure t)
 
 (use-package doom-themes
   :ensure t
