@@ -13,6 +13,7 @@
 ;; Which-Key
 (setq which-key-idle-delay 0.3)
 (which-key-mode t)
+(setq visible-bell 1)
 
 ;; Line Numbers
 (global-display-line-numbers-mode t)
