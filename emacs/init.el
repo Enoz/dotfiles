@@ -1,5 +1,6 @@
 
 
+
 ;; Basic Emacs Options
 
 (setq inhibit-startup-message t)
@@ -43,23 +44,6 @@
   :ensure t)
 
 
-;; Vim Keybindings
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode))
-
-(use-package evil-collection
-  :ensure t
-  :after evil
-  :config
-  (evil-collection-init))
-
-
 ;; Better completion visualization
 (use-package vertico
   :ensure t
@@ -86,8 +70,7 @@
 (use-package embark
   :ensure t
   :bind
-  (("C-'" . embark-act)         ;; pick some comfortable binding
-   ("C-;" . embark-dwim)        ;; good alternative: M-.
+  (("M-o" . embark-act)         ;; pick some comfortable binding
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
   :init
   ;; Optionally replace the key help with a completing-read interface
@@ -98,6 +81,7 @@
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
                  (window-parameters (mode-line-format . none)))))
+
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
@@ -121,6 +105,18 @@
   :hook (after-init . doom-modeline-mode)
   :config (setq doom-modeline-major-mode-icon nil))
 
+;; Load configuration files from ~/.config/emacs/local/
+(let ((config-dir (expand-file-name "local/" user-emacs-directory)))
+  (when (file-directory-p config-dir)
+    (let ((files (sort (directory-files config-dir t "\\.el$") #'string-lessp)))
+      (dolist (file files)
+        ;; Skip init.el to avoid recursion
+        (unless (string= (file-name-nondirectory file) "init.el")
+          (condition-case err
+              ;; Prefer byte-compiled files if available
+              (load (file-name-sans-extension file) nil :nomessage)
+            (error
+             (message "Error loading %s: %s" file (error-message-string err)))))))))
 
 ;; Store automatic customisation options elsewhere
 (setq custom-file (locate-user-emacs-file "custom.el"))
