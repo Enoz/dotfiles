@@ -1,6 +1,3 @@
-
-
-
 ;; Basic Emacs Options
 
 (setq inhibit-startup-message t)
