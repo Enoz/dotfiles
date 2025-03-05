@@ -44,6 +44,22 @@
   :ensure t)
 
 
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init))
+
+
 ;; Better completion visualization
 (use-package vertico
   :ensure t
@@ -93,6 +109,10 @@
 (use-package consult
   :ensure t)
 
+(use-package magit
+  :ensure t)
+
+
 (use-package doom-themes
   :ensure t
   :config
@@ -104,19 +124,6 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :config (setq doom-modeline-major-mode-icon nil))
-
-;; Load configuration files from ~/.config/emacs/local/
-(let ((config-dir (expand-file-name "local/" user-emacs-directory)))
-  (when (file-directory-p config-dir)
-    (let ((files (sort (directory-files config-dir t "\\.el$") #'string-lessp)))
-      (dolist (file files)
-        ;; Skip init.el to avoid recursion
-        (unless (string= (file-name-nondirectory file) "init.el")
-          (condition-case err
-              ;; Prefer byte-compiled files if available
-              (load (file-name-sans-extension file) nil :nomessage)
-            (error
-             (message "Error loading %s: %s" file (error-message-string err)))))))))
 
 ;; Store automatic customisation options elsewhere
 (setq custom-file (locate-user-emacs-file "custom.el"))
