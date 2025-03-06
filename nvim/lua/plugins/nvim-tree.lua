@@ -40,12 +40,14 @@ return {
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 				api.config.mappings.default_on_attach(bufnr)
-				vim.keymap.set(
-					"n",
-					"\\",
-					api.tree.close,
-					{ desc = "Close Nvim Tree", buffer = bufnr, noremap = true, silent = true }
-				)
+				for _, val in pairs({ "\\", "<ESC>" }) do
+					vim.keymap.set(
+						"n",
+						val,
+						api.tree.close,
+						{ desc = "Close Nvim Tree", buffer = bufnr, noremap = true, silent = true }
+					)
+				end
 			end,
 		})
 	end,
