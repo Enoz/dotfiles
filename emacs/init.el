@@ -1,33 +1,9 @@
-;; Basic Emacs Options
+;;; package.el
 
-(setq inhibit-startup-message t)
-(setq enable-recurisve-minibuffers t)
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-(tooltip-mode 0)
-(menu-bar-mode 0)
-
-;; Which-Key
-(setq which-key-idle-delay 0.3)
-(which-key-mode t)
-(setq visible-bell 1)
-
-;; Line Numbers
-(global-display-line-numbers-mode t)
-(dolist (mode `(org-mode-hook
-		term-mode-hook
-		shell-mode-hook
-		eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-(set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 120)
-
-;; Set up package.el to work with MELPA
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
-
 (package-initialize)
 
 ;; Initialize use-package
@@ -36,10 +12,51 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; Moves tmp files into /var and /etc/
+;;; Theme
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-acario-dark t))
+
+;;; Emacs
+
+(use-package emacs
+  :init
+  (setq inhibit-startup-message t
+	enable-recursive-minibuffers t
+	visible-bell t)
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0)
+  (tooltip-mode 0)
+  (menu-bar-mode 0)
+
+  ;; Font
+  (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 120)
+
+  ;; Line Numbers
+  (global-display-line-numbers-mode t)
+  (dolist (mode `(org-mode-hook
+		  term-mode-hook
+		  shell-mode-hook
+		  eshell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0)))))
+
+;;; Which-Key
+  
+(use-package which-key
+  :init
+  (setq which-key-idle-delay 0.3)
+  (which-key-mode t))
+
+;;; No-Littering
+
 (use-package no-littering
   :ensure t)
 
+;;; Evil
 
 (use-package evil
   :ensure t
@@ -56,8 +73,8 @@
   :config
   (evil-collection-init))
 
+;;; Vertico
 
-;; Better completion visualization
 (use-package vertico
   :ensure t
   :config
@@ -67,18 +84,22 @@
   (keymap-set vertico-map "C-d" #'vertico-scroll-up)
   (keymap-set vertico-map "C-u" #'vertico-scroll-down))
 
-;; Fuzzier completion style 
+;;; Orderless
+
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))  
 
-;; Rich Minibuffer annotations 
+;;; Marginalia
+
 (use-package marginalia
   :ensure t
   :init
   (marginalia-mode))
+
+;;; Embark
 
 (use-package embark
   :ensure t
@@ -102,20 +123,17 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-;; Consult
+;;; Consult
+
 (use-package consult
   :ensure t)
+
+;;; Magit
 
 (use-package magit
   :ensure t)
 
-
-(use-package doom-themes
-  :ensure t
-  :config
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-acario-dark t))
+;;; Doom Modeline
 
 (use-package doom-modeline
   :ensure t
