@@ -142,6 +142,13 @@
   :hook (after-init . doom-modeline-mode)
   :config (setq doom-modeline-major-mode-icon nil))
 
+(use-package org
+  :bind
+  (("C-c l" . org-store-link)
+   ("C-c a" . org-agenda)
+   ("C-c c" . org-capture)))
+
+
 ;; Store automatic customisation options elsewhere
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
