@@ -64,6 +64,7 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
   (setq evil-want-keybinding nil)
+  (setq evil-undo-system 'undo-redo)
   :config
   (evil-mode))
 
@@ -146,7 +147,14 @@
   :bind
   (("C-c l" . org-store-link)
    ("C-c a" . org-agenda)
-   ("C-c c" . org-capture)))
+   ("C-c c" . org-capture))
+  :config
+  (setq org-agenda-files '("~/org")
+	org-log-done 'time
+	org-return-follows-link t)
+  :hook
+  (org-mode-hook . org-indent-mode)
+  (org-mode-hook . visual-line-mode))
 
 
 ;; Store automatic customisation options elsewhere
