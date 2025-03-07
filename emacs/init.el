@@ -150,6 +150,13 @@
   (setq org-agenda-files '("~/org")
 	org-log-done 'time
 	org-return-follows-link t)
+
+  (custom-theme-set-faces
+   'user
+   `(org-level-1 ((t (:height 1.4 :weight bold))))
+   `(org-level-2 ((t (:height 1.3 :weight bold))))
+   `(org-level-3 ((t (:height 1.2 :weight semi-bold))))
+   `(org-level-4 ((t (:height 1.1 :weight semi-bold)))))
   :hook
   (org-mode-hook . org-indent-mode)
   (org-mode-hook . visual-line-mode))
