@@ -177,13 +177,11 @@
 	'(
           ("n" "Notes"
            entry (file+headline "~/org/notes.org" "Misc Notes")
-           "** %?"
-           :empty-lines 0)
+           "** %?")
 
 	  ("g" "General To-Do"
            entry (file+headline "~/org/todos.org" "General Tasks")
-           "* TODO [#B] %?\n:Created: %T\n "
-           :empty-lines 0)
+           "* TODO [#B] %?\n:Created: %T\n ")
 	  
 	  ("m" "Meeting"
            entry (file+datetree "~/org/meetings.org")
