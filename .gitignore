@@ -5,3 +5,5 @@ emacs/eln-cache/
 emacs/var/
 emacs/etc/
 *custom.el
+\#*\#
+*~
