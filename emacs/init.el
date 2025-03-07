@@ -104,7 +104,7 @@
 (use-package embark
   :ensure t
   :bind
-  (("M-o" . embark-act)         ;; pick some comfortable binding
+  (("C-;" . embark-act)         ;; pick some comfortable binding
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
   :init
   ;; Optionally replace the key help with a completing-read interface
@@ -120,6 +120,8 @@
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
   :ensure t
+  :config
+  (setq consult-async-min-input 1)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
