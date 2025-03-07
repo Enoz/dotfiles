@@ -66,11 +66,13 @@
   :config
   (evil-mode))
 
+
 (use-package evil-collection
   :ensure t
   :after evil
   :config
   (evil-collection-init))
+
 
 ;;; Vertico
 
@@ -157,6 +159,42 @@
    `(org-level-2 ((t (:height 1.3 :weight bold))))
    `(org-level-3 ((t (:height 1.2 :weight semi-bold))))
    `(org-level-4 ((t (:height 1.1 :weight semi-bold)))))
+
+  (setq org-todo-keywords
+	'((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@)"  "|" "DONE(d!)" "WONT-DO(w@/!)" )
+          ))
+
+  (setq org-todo-keyword-faces
+	'(
+          ("TODO" . (:foreground "GoldenRod" :weight bold))
+          ("IN-PROGRESS" . (:foreground "Cyan" :weight bold))
+          ("BLOCKED" . (:foreground "Red" :weight bold))
+          ("DONE" . (:foreground "LimeGreen" :weight bold))
+          ("WONT-DO" . (:foreground "LimeGreen" :weight bold))
+          ))
+
+  (setq org-capture-templates
+	'(
+          ("n" "Notes"
+           entry (file+headline "~/org/notes.org" "Misc Notes")
+           "** %?"
+           :empty-lines 0)
+
+	  ("g" "General To-Do"
+           entry (file+headline "~/org/todos.org" "General Tasks")
+           "* TODO [#B] %?\n:Created: %T\n "
+           :empty-lines 0)
+	  
+	  ("m" "Meeting"
+           entry (file+datetree "~/org/meetings.org")
+           
+"* %? :meeting:%^g \n:Created: %T\n** Attendees\n*** \n** Notes\n** Action Items\n*** TODO [#A] "
+           :tree-type week
+           :clock-in t
+           :clock-resume t
+           :empty-lines 0)
+
+          ))
   :hook
   (org-mode-hook . org-indent-mode)
   (org-mode-hook . visual-line-mode))
