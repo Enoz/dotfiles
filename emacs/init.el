@@ -25,7 +25,8 @@
   :init
   (setq inhibit-startup-message t
 	enable-recursive-minibuffers t
-	visible-bell t)
+	visible-bell t
+	make-backup-files nil)
   (scroll-bar-mode 0)
   (tool-bar-mode 0)
   (tooltip-mode 0)
@@ -49,10 +50,6 @@
   (setq which-key-idle-delay 0.3)
   (which-key-mode t))
 
-;;; No-Littering
-
-(use-package no-littering
-  :ensure t)
 
 ;;; Evil
 
