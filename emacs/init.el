@@ -160,6 +160,9 @@
    `(org-level-3 ((t (:height 1.2 :weight semi-bold))))
    `(org-level-4 ((t (:height 1.1 :weight semi-bold)))))
 
+  (require 'ox-md)
+  (add-to-list 'org-export-backends 'markdown)
+
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@)"  "|" "DONE(d!)" "WONT-DO(w@/!)" )
           ))
