@@ -70,6 +70,16 @@
   :config
   (evil-collection-init))
 
+;;; Better Jumper
+
+(use-package better-jumper
+  :ensure t
+  :after evil
+  :bind(:map evil-motion-state-map
+             ("C-o" . better-jumper-jump-backward)
+             ("C-i" . better-jumper-jump-forward))
+  :config
+  (better-jumper-mode))
 
 ;;; Vertico
 
@@ -196,6 +206,34 @@
   :hook
   (org-mode-hook . org-indent-mode)
   (org-mode-hook . visual-line-mode))
+
+;;; Eglot
+
+(use-package eglot
+  :init
+  (setq eglot-events-buffer-config '(:size 0 :format full))
+  :hook
+  (prog-mode-hook . eglot-ensure))
+
+
+
+;;; Company
+
+(use-package company
+  :ensure t
+  :bind(:map company-active-map
+             ("<return>" . nil)
+             ("RET" . nil)
+             ("C-<return>" . company-complete-selection))
+  :hook
+  (after-init-hook . global-company-mode))
+
+;;; Go
+
+(use-package go-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode)))
 
 
 ;; Store automatic customisation options elsewhere
