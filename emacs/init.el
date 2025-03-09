@@ -41,7 +41,14 @@
 		  term-mode-hook
 		  shell-mode-hook
 		  eshell-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 0)))))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  :bind
+  ("C-}" . next-window-any-frame)
+  ("C-{" . previous-window-any-frame)
+  ("C-+" . split-window-right)
+  ("C-=" . split-window-below)
+  ("C-_" . delete-window))
+
 
 ;;; Which-Key
   
