@@ -61,7 +61,11 @@
   (setq evil-want-keybinding nil)
   (setq evil-undo-system 'undo-redo)
   :config
-  (evil-mode))
+  (evil-mode)
+  (evil-define-key 'normal 'global (kbd "C-<right>") 'enlarge-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<left>") 'shrink-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<up>") 'enlarge-window)
+  (evil-define-key 'normal 'global (kbd "C-<down>") 'shrink-window))
 
 
 (use-package evil-collection
