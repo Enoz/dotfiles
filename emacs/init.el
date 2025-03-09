@@ -230,8 +230,10 @@
              ("RET" . nil)
              ("C-<return>" . company-complete-selection))
   :hook
-  (after-init-hook . global-company-mode))
-
+  (after-init-hook . global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1
+	company-idle-delay 0))
 ;;; Go
 
 (use-package go-mode
