@@ -211,15 +211,21 @@
   (org-mode-hook . org-indent-mode)
   (org-mode-hook . visual-line-mode))
 
-;;; Eglot
+;;; lsp-mode
 
-(use-package eglot
+(use-package lsp-mode
+  :ensure t
   :init
-  (setq eglot-events-buffer-config '(:size 0 :format full))
-  :hook
-  (prog-mode-hook . eglot-ensure))
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+         (go-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
 
 ;;; Company
 
@@ -230,7 +236,11 @@
              ("RET" . nil)
              ("C-<return>" . company-complete-selection))
   :hook
-  (after-init-hook . global-company-mode))
+  (after-init-hook . global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1
+	company-idle-delay 0))
+
 
 ;;; Go
 
@@ -244,3 +254,4 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
+
