@@ -10,6 +10,7 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(setq use-package-enable-imenu-support 1)
 (require 'use-package)
 
 ;;; Theme
@@ -149,15 +150,17 @@
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
   :ensure t
-  :config
-  (setq consult-async-min-input 1)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
 ;;; Consult
 
 (use-package consult
-  :ensure t)
+  :ensure t
+  :bind (("C-c g" . consult-ripgrep)
+	 ("C-c i" . consult-imenu))
+  :config
+  (setq consult-async-min-input 1))
 
 ;;; Magit
 
