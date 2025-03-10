@@ -21,6 +21,16 @@
 
 ;;; Emacs
 
+(defun split-and-follow-horizontally ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun split-and-follow-vertically ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
 (use-package emacs
   :init
   (setq inhibit-startup-message t
@@ -45,8 +55,8 @@
   :bind
   ("C-}" . next-window-any-frame)
   ("C-{" . previous-window-any-frame)
-  ("C-+" . split-window-right)
-  ("C-=" . split-window-below)
+  ("C-+" . split-and-follow-vertically)
+  ("C-=" . split-and-follow-horizontally)
   ("C-_" . delete-window))
 
 
