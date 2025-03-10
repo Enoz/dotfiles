@@ -164,6 +164,16 @@
 (use-package magit
   :ensure t)
 
+;;; Helpful
+
+(use-package helpful
+  :ensure t
+  :bind
+  ("C-h k" . helpful-key)
+  ("C-h f" . helpful-callable)
+  ("C-h v" . helpful-variable)
+  ("C-h o" . helpful-symbol))
+
 ;;; Doom Modeline
 
 (use-package doom-modeline
@@ -236,6 +246,11 @@
   :hook
   (prog-mode-hook . eglot-ensure))
 
+(use-package eldoc-box
+  :ensure t
+  :after eglot ; Otherwise, eglot mode map may not exist to override the keymap
+  :config
+  (evil-define-key 'normal eglot-mode-map "K" #'eldoc-box-help-at-point))
 
 
 ;;; Company
