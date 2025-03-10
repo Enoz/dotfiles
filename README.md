@@ -21,3 +21,13 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ```bash
 ln -s -f ~/dotfiles/kitty ~/.config/kitty
 ```
+
+## emacs
+
+#### Dependencies
+
+- `ttf-firacode-nerd` font
+
+```bash
+ln -s -f ~/dotfiles/emacs ~/.config/emacs
+```
