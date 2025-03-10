@@ -158,7 +158,8 @@
 (use-package consult
   :ensure t
   :bind (("C-c g" . consult-ripgrep)
-	 ("C-c i" . consult-imenu))
+	 ("C-c i" . consult-imenu)
+	 ("C-c f" . consult-fd))
   :config
   (setq consult-async-min-input 1))
 
@@ -269,12 +270,18 @@
   :config
   (setq company-minimum-prefix-length 1
 	company-idle-delay 0))
-;;; Go
+
+;;; Code Modes
 
 (use-package go-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode)))
+
+(use-package lua-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode)))
 
 
 ;; Store automatic customisation options elsewhere
