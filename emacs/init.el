@@ -100,7 +100,7 @@
   :after (evil evil-collection)
   :bind(:map evil-motion-state-map
              ("C-o" . better-jumper-jump-backward)
-             ("C-i" . better-jumper-jump-forward))
+             ("<C-i>" . better-jumper-jump-forward))
   :config
   (better-jumper-mode))
 ;;; Vertico
