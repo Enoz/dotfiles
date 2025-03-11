@@ -56,8 +56,8 @@
   :bind
   ("C-}" . next-window-any-frame)
   ("C-{" . previous-window-any-frame)
-  ("C-+" . split-and-follow-vertically)
-  ("C-=" . split-and-follow-horizontally)
+  ("C-+" . enoz/split-and-follow-vertically)
+  ("C-=" . enoz/split-and-follow-horizontally)
   ("C-_" . delete-window))
 
 
@@ -81,8 +81,8 @@
 	evil-search-module 'evil-search)
   :config
   (evil-mode)
-  (evil-define-key 'normal 'global (kbd "C-<right>") 'enoz/enlarge-window-horizontally)
-  (evil-define-key 'normal 'global (kbd "C-<left>") 'enoz/shrink-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<right>") 'enlarge-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<left>") 'shrink-window-horizontally)
   (evil-define-key 'normal 'global (kbd "C-<up>") 'enlarge-window)
   (evil-define-key 'normal 'global (kbd "C-<down>") 'shrink-window))
 
@@ -92,6 +92,13 @@
   :after evil
   :config
   (evil-collection-init))
+
+(use-package evil-org
+  :ensure t
+  :after (evil org)
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 ;;; Better Jumper
 
