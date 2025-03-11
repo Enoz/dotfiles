@@ -22,12 +22,12 @@
 
 ;;; Emacs
 
-(defun split-and-follow-horizontally ()
+(defun enoz/split-and-follow-horizontally ()
   (interactive)
   (split-window-below)
   (other-window 1))
 
-(defun split-and-follow-vertically ()
+(defun enoz/split-and-follow-vertically ()
   (interactive)
   (split-window-right)
   (other-window 1))
@@ -62,7 +62,7 @@
 
 
 ;;; Which-Key
-  
+
 (use-package which-key
   :init
   (setq which-key-idle-delay 0.3)
@@ -74,14 +74,15 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  (setq evil-undo-system 'undo-redo)
+  (setq evil-want-C-u-scroll t
+	evil-want-integration t ;; This is optional since it's already set to t by default.
+	evil-want-keybinding nil
+	evil-undo-system 'undo-redo
+	evil-search-module 'evil-search)
   :config
   (evil-mode)
-  (evil-define-key 'normal 'global (kbd "C-<right>") 'enlarge-window-horizontally)
-  (evil-define-key 'normal 'global (kbd "C-<left>") 'shrink-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<right>") 'enoz/enlarge-window-horizontally)
+  (evil-define-key 'normal 'global (kbd "C-<left>") 'enoz/shrink-window-horizontally)
   (evil-define-key 'normal 'global (kbd "C-<up>") 'enlarge-window)
   (evil-define-key 'normal 'global (kbd "C-<down>") 'shrink-window))
 
@@ -96,13 +97,12 @@
 
 (use-package better-jumper
   :ensure t
-  :after evil
+  :after (evil evil-collection)
   :bind(:map evil-motion-state-map
              ("C-o" . better-jumper-jump-backward)
              ("C-i" . better-jumper-jump-forward))
   :config
   (better-jumper-mode))
-
 ;;; Vertico
 
 (use-package vertico
@@ -155,11 +155,23 @@
 
 ;;; Consult
 
+(defun enoz/consult-ripgrep-dir ()
+  (interactive)
+  (consult-ripgrep 1))
+
+
+(defun enoz/consult-fd-dir ()
+  (interactive)
+  (consult-fd 1))
+
 (use-package consult
   :ensure t
-  :bind (("C-c g" . consult-ripgrep)
-	 ("C-c i" . consult-imenu)
-	 ("C-c f" . consult-fd))
+  :bind (("C-c f g" . consult-ripgrep)
+	 ("C-c f G" . enoz/consult-ripgrep-dir)
+	 ("C-c f i" . consult-imenu)
+	 ("C-c f f" . consult-fd)
+	 ("C-c f F" . enoz/consult-fd-dir)
+	 ("C-c f l" . consult-line))
   :config
   (setq consult-async-min-input 1))
 
@@ -184,6 +196,8 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :config (setq doom-modeline-major-mode-icon nil))
+
+;;; Org Mode
 
 (use-package org
   :bind
@@ -231,7 +245,7 @@
 	  ("m" "Meeting"
            entry (file+datetree "~/org/meetings.org")
            
-"* %? :meeting:%^g \n:Created: %T\n** Attendees\n*** \n** Notes\n** Action Items\n*** TODO [#A] "
+	   "* %? :meeting:%^g \n:Created: %T\n** Attendees\n*** \n** Notes\n** Action Items\n*** TODO [#A] "
            :tree-type week
            :clock-in t
            :clock-resume t
