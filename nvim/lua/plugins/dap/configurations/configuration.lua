@@ -37,18 +37,4 @@ dap.configurations.go = {
 		request = "launch",
 		program = "${file}",
 	},
-	{
-		type = "delve",
-		name = "Delve: Debug test (File)",
-		request = "launch",
-		mode = "test",
-		program = "${file}",
-	},
-	{
-		type = "delve",
-		name = "Delve: Debug test (Input)",
-		request = "launch",
-		mode = "test",
-		program = InputProgram,
-	},
 }
