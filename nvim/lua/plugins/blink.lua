@@ -75,7 +75,7 @@ return {
 		},
 		cmdline = {
 			keymap = {
-				preset = "cmdline",
+				preset = "inherit",
 			},
 			enabled = true,
 			completion = {
