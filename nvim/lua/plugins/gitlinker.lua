@@ -1,12 +1,9 @@
 return {
-	"ruifm/gitlinker.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	setup = function()
-		require("gitlinker").setup({
-			callbacks = {
-				["github.cloud.capitalone.com"] = require("gitlinker.hosts").get_github_type_url,
-			},
-			mappings = "<leader>g",
-		})
-	end,
+	"linrongbin16/gitlinker.nvim",
+	cmd = "GitLink",
+	opts = {},
+	keys = {
+		{ "<leader>gy", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank git link" },
+		{ "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+	},
 }
