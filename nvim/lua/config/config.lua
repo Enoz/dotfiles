@@ -9,8 +9,7 @@ vim.g.maplocalleader = " "
 
 -- Line Numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.signcolumn = "auto:3"
+vim.opt.signcolumn = "auto:2"
 
 -- Enables mouse mode for (a)ll vim modes
 vim.opt.mouse = "a"
