@@ -74,10 +74,10 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		cmdline = {
+			enabled = true,
 			keymap = {
 				preset = "inherit",
 			},
-			enabled = true,
 			completion = {
 				menu = {
 					auto_show = true,
@@ -115,7 +115,6 @@ return {
 				},
 			},
 		},
-
 		signature = { enabled = true },
 	},
 }
