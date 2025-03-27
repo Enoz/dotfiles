@@ -22,15 +22,15 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 #### Language Servers
 
-| Language Server | Arch                                                                                                               | Brew                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
-| lua-ls          | lua-language-server                                                                                                | lua-language-server          |
-| gopls           | gopls                                                                                                              | gopls                        |
-| ts-ls           | typescript-language-server                                                                                         | typescript-language-server   |
-| pylsp           | python-language-server (Optional Deps `python-pycodestyle` `python-pydocstyle` `python-pyflakes` `python-pylint` ) | python-language-server       |
-| json            | vscode-json-languageserver                                                                                         | vscode-langservers-extracted |
-| css             | vscode-css-languageserver                                                                                          | vscode-langservers-extracted |
-| html            | vscode-html-languageserver                                                                                         | vscode-langservers-extracted |
+| Language Server | Arch                                                                                                                                                                              | Brew                         |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| lua-ls          | lua-language-server                                                                                                                                                               | lua-language-server          |
+| gopls           | gopls                                                                                                                                                                             | gopls                        |
+| ts-ls           | typescript-language-server                                                                                                                                                        | typescript-language-server   |
+| pylsp           | python-language-server ([Optional deps](https://github.com/palantir/python-language-server/tree/0fa74bae6fbb331498dbc39b6257d74357edea2f?tab=readme-ov-file#installation) needed) | python-language-server       |
+| json            | vscode-json-languageserver                                                                                                                                                        | vscode-langservers-extracted |
+| css             | vscode-css-languageserver                                                                                                                                                         | vscode-langservers-extracted |
+| html            | vscode-html-languageserver                                                                                                                                                        | vscode-langservers-extracted |
 
 #### Formatters
 
