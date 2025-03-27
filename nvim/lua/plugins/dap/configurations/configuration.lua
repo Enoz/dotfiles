@@ -8,22 +8,6 @@ local InputProgram = function()
 	})
 end
 
-dap.configurations.c = {
-	{
-		name = "LLDB: Launch",
-		type = "codelldb",
-		request = "launch",
-		program = InputProgram,
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
-		args = {},
-		console = "integratedTerminal",
-	},
-}
-
-dap.configurations.cpp = dap.configurations.c
-dap.configurations.rust = dap.configurations.c
-
 dap.configurations.go = {
 	{
 		type = "delve",

@@ -29,6 +29,10 @@
 | prettier  | prettier | prettier |
 | stylua    | stylua   | stylua   |
 
+| DAP   | Arch  | Brew  |
+| ----- | ----- | ----- |
+| delve | delve | delve |
+
 ```bash
 ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ```
