@@ -1,0 +1,9 @@
+vim.lsp.enable({
+	"lua-ls",
+	"gopls",
+	"ts-ls",
+	"pylsp",
+	"json",
+	"css",
+	"html",
+})
