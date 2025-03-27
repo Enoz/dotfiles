@@ -4,6 +4,8 @@ vim.opt.titlelen = 0
 vim.opt.titlestring = [[%{v:progname} %f %h%m%r%w ]]
 
 -- Leaders
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
