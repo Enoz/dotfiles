@@ -33,5 +33,6 @@ return {
 		vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "LSP Defenitions" })
 		vim.keymap.set("n", "gD", fzf.lsp_declarations, { desc = "LSP Declarations" })
 		vim.keymap.set("n", "gs", fzf.lsp_document_symbols, { desc = "LSP Symbols" })
+		vim.keymap.set("n", "gS", fzf.lsp_live_workspace_symbols, { desc = "LSP Symbols" })
 	end,
 }
