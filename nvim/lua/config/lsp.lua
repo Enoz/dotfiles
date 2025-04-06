@@ -6,6 +6,7 @@ vim.lsp.enable({
 	"json",
 	"css",
 	"html",
+	"eslint",
 })
 
 vim.diagnostic.config({

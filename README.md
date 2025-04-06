@@ -31,6 +31,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | json            | vscode-json-languageserver                                                                                                                                                   | vscode-langservers-extracted |
 | css             | vscode-css-languageserver                                                                                                                                                    | vscode-langservers-extracted |
 | html            | vscode-html-languageserver                                                                                                                                                   | vscode-langservers-extracted |
+| eslint          | eslint-language-server                                                                                                                                                       | vscode-langservers-extracted |
 
 #### Formatters
 
