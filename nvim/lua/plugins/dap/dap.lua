@@ -2,7 +2,6 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
 		},
@@ -30,7 +29,7 @@ return {
 			vim.keymap.set("n", "<F4>", dap.step_out, { desc = "Dap Step Out" })
 			vim.keymap.set("n", "<F5>", dap.terminate, { desc = "Dap Terminate" })
 			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-			vim.keymap.set("n", "<F7>", function()
+			vim.keymap.set("n", "<leader>B", function()
 				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 			end, { desc = "Toggle Breakpoint (condition)" })
 			vim.keymap.set("n", "<F8>", dapui.toggle, { desc = "DAP Toggle UI" })
