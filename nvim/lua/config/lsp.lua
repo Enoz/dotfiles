@@ -14,3 +14,5 @@ vim.diagnostic.config({
 		current_line = true,
 	},
 })
+
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
