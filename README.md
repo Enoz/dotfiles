@@ -1,5 +1,11 @@
 # dotfiles
 
+## Bash
+
+```bash
+ln -s -f ~/dotfiles/.bashrc ~/.bashrc 
+```
+
 ## Neovim
 
 ```bash
