@@ -27,6 +27,15 @@ return {
 							["ic"] = "@class.inner",
 						},
 					},
+					move = {
+						enable = true,
+						goto_next_start = {
+							["]a"] = "@parameter.inner",
+						},
+						goto_previous_start = {
+							["[a"] = "@parameter.inner",
+						},
+					},
 				},
 			})
 		end,
