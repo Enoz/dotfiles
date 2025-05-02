@@ -4,7 +4,7 @@ return {
 		require("nightfox").setup({
 			groups = {
 				all = {
-					Visual = { bg = "#373737" },
+					Visual = { bg = "#40313b" },
 				},
 			},
 		})
