@@ -4,13 +4,6 @@ return {
 	config = function()
 		require("fzf-lua").setup({
 			keymap = {
-				builtin = {
-					true,
-					["<C-S-j>"] = "preview-down",
-					["<C-S-k>"] = "preview-up",
-					["<C-S-d>"] = "preview-page-down",
-					["<C-S-u>"] = "preview-page-up",
-				},
 				fzf = {
 					true,
 					["ctrl-d"] = "half-page-down",
