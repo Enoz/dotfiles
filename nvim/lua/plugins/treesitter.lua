@@ -65,6 +65,7 @@ return {
 				"robots",
 				"rust",
 				"scss",
+				"scheme",
 				"sql",
 				"ssh_config",
 				"strace",
