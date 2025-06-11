@@ -2,51 +2,62 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects", -- Add textobjects as a dependency
-		},
+		lazy = false,
+		branch = "main",
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				auto_install = true,
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<CR>",
-						node_incremental = "<CR>",
-						scope_incremental = false,
-						node_decremental = "<BS>",
-					},
-				},
-				textobjects = {
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["aa"] = "@parameter.outer",
-							["ia"] = "@parameter.inner",
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-							["ac"] = "@class.outer",
-							["ic"] = "@class.inner",
-						},
-					},
-					move = {
-						enable = true,
-						goto_next_start = {
-							["]a"] = "@parameter.inner",
-						},
-						goto_previous_start = {
-							["[a"] = "@parameter.inner",
-						},
-					},
-				},
+			local ts = require("nvim-treesitter")
+			ts.install(ts.get_available())
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = ts.get_installed(),
+				callback = function()
+					vim.treesitter.start()
+				end,
 			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				lookahead = true,
+			})
+
+			local select_binds = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			}
+
+			local move_next_start_binds = {
+				["]a"] = "@parameter.inner",
+			}
+
+			local move_previous_start_binds = {
+				["[a"] = "@parameter.inner",
+			}
+
+			for bind, object in pairs(select_binds) do
+				vim.keymap.set({ "x", "o" }, bind, function()
+					require("nvim-treesitter-textobjects.select").select_textobject(object, "textobjects")
+				end)
+			end
+
+			for bind, object in pairs(move_next_start_binds) do
+				vim.keymap.set({ "n", "x", "o" }, bind, function()
+					require("nvim-treesitter-textobjects.move").goto_next_start(object, "textobjects")
+				end)
+			end
+
+			for bind, object in pairs(move_previous_start_binds) do
+				vim.keymap.set({ "n", "x", "o" }, bind, function()
+					require("nvim-treesitter-textobjects.move").goto_previous_start(object, "textobjects")
+				end)
+			end
 		end,
 	},
 }

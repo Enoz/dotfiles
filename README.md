@@ -3,7 +3,7 @@
 ## Bash
 
 ```bash
-ln -s -f ~/dotfiles/.bashrc ~/.bashrc 
+ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ```
 
 ## Neovim
@@ -15,6 +15,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ### Dependencies
 
 - fzf
+- tree-sitter-cli
 
 ### Optional Dependencies
 
