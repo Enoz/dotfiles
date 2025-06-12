@@ -10,7 +10,7 @@ return {
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = ts.get_available(),
 				callback = function()
-					ts.install({ vim.bo.filetype }):wait(5000)
+					ts.install({ vim.bo.filetype }):wait(30000)
 					vim.treesitter.start()
 				end,
 			})
