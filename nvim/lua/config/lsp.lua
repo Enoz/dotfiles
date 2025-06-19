@@ -7,6 +7,7 @@ vim.lsp.enable({
 	"css",
 	"html",
 	"eslint",
+	"terraform-ls",
 })
 
 vim.diagnostic.config({
