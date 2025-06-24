@@ -6,9 +6,10 @@ return {
 		branch = "main",
 		config = function()
 			local ts = require("nvim-treesitter")
+			ts.install({ "tsx" })
 
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = ts.get_available(),
+				pattern = { "typescriptreact", unpack(ts.get_available()) },
 				callback = function()
 					ts.install({ vim.bo.filetype }):wait(30000)
 					vim.treesitter.start()
