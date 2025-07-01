@@ -20,3 +20,9 @@ vim.diagnostic.config({
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Open LSP Hover" })
+
+vim.filetype.add({
+	extension = {
+		svelte = "svelte",
+	},
+})
