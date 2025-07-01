@@ -41,6 +41,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | eslint          | eslint-language-server                                                                                                                                                       | vscode-langservers-extracted |
 | terraform-ls    | terraform-ls [AUR](https://aur.archlinux.org/packages/terraform-ls)                                                                                                          | terraform-ls                 |
 | yaml-ls         | yaml-language-server                                                                                                                                                         | yaml-language-server         |
+| svelte          | svelte-language-server-git                                                                                                                                                   | svelte-language-server       |
 
 #### Formatters
 

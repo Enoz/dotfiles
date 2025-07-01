@@ -9,6 +9,7 @@ vim.lsp.enable({
 	"eslint",
 	"terraform-ls",
 	"yaml-ls",
+	"svelte",
 })
 
 vim.diagnostic.config({
