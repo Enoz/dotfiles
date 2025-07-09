@@ -12,6 +12,7 @@ return {
 			},
 		})
 		local fzf = require("fzf-lua")
+		fzf.register_ui_select()
 
 		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Fzf Find Files" })
 		vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Fzf Live Grep" })
