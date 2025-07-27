@@ -10,6 +10,7 @@ vim.lsp.enable({
 	"terraform-ls",
 	"yaml-ls",
 	"svelte",
+	"clang",
 })
 
 vim.diagnostic.config({

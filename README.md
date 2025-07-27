@@ -43,6 +43,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | yaml-ls         | yaml-language-server                                                                                                                                                         | yaml-language-server         |
 | svelte          | svelte-language-server-git                                                                                                                                                   | svelte-language-server       |
 | jdtls           | jdtls                                                                                                                                                                        | jdtls                        |
+| clang           | clang                                                                                                                                                                        | clang                        |
 
 #### Formatters
 
