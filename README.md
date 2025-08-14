@@ -58,6 +58,14 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | ----- | ----- | ----- |
 | delve | delve | delve |
 
+#### Godot Integration
+
+Godot `Editor->Text Editor->External`
+
+- Use External Editor -> `On`
+- Exec Path -> `kitty`
+- Exec Flags -> `-e nvim --server /tmp/godot.pipe --remote {file}`
+
 ## kitty
 
 ```bash
