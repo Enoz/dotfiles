@@ -10,7 +10,6 @@ return {
 			ts.install({
 				"asm",
 				"bash",
-				"blueprint",
 				"c",
 				"c_sharp",
 				"caddy",
@@ -39,7 +38,6 @@ return {
 				"javadoc",
 				"json",
 				"json5",
-				"jsonc",
 				"latex",
 				"llvm",
 				"lua",
