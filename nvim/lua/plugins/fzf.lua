@@ -17,7 +17,9 @@ return {
 		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Fzf Find Files" })
 		vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Fzf Live Grep" })
 		vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Fzf Buffers" })
+		vim.keymap.set("n", "<leader>fm", fzf.marks, { desc = "Fzf Marks" })
 		vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Fzf Help" })
+
 
 		--LSP Binds
 		vim.keymap.set("n", "gR", vim.lsp.buf.rename, { desc = "LSP Rename" })
