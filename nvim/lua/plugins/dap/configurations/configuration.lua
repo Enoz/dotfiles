@@ -15,10 +15,4 @@ dap.configurations.go = {
 		request = "launch",
 		program = InputProgram,
 	},
-	{
-		type = "delve",
-		name = "Delve: Debug (File)",
-		request = "launch",
-		program = "${file}",
-	},
 }
