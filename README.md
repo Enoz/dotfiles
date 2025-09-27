@@ -71,3 +71,9 @@ Godot `Editor->Text Editor->External`
 ```bash
 ln -s -f ~/dotfiles/kitty ~/.config/kitty
 ```
+
+## Wezterm
+
+```bash
+ln -s -f ~/dotfiles/.wezterm.lua ~/.wezterm.lua
+```
