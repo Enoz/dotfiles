@@ -54,3 +54,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Quickfix keymaps
 vim.keymap.set("n", "<C-=>", "<cmd>copen<CR>", { silent = true })
 vim.keymap.set("n", "<C-->", "<cmd>cclose<CR>", { silent = true })
+vim.keymap.set("n", "]q", "<cmd>:cnext<CR>", { desc = "Next Quickfix Item" })
+vim.keymap.set("n", "[q", "<cmd>:cprev<CR>", { desc = "Previous Quickfix Item" })
+
