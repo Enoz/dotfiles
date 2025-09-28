@@ -41,6 +41,11 @@ config.keys = {
 	{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
 	-- Fullscreen
 	{ key = "F11", action = act.ToggleFullScreen },
+	-- Font Size
+	{ key = "=", mods = "CTRL", action = "DisableDefaultAssignment" },
+	{ key = "-", mods = "CTRL", action = "DisableDefaultAssignment" },
+	{ key = "=", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
+	{ key = "-", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
 }
 
 config.key_tables = {
