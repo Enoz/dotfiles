@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("Hack Nerd Font Mono")
 
 config.initial_cols = 120
 config.initial_rows = 28

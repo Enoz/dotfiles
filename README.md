@@ -16,7 +16,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 - fzf
 - tree-sitter-cli
-- JetBrainsMono Nerd Font
+- Hack Nerd Font
 
 ### Optional Dependencies
 
