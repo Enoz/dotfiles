@@ -11,6 +11,8 @@ config.initial_rows = 28
 config.font_size = 14
 config.color_scheme = "Dark Pastel"
 
+config.tab_bar_at_bottom = true
+
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -39,6 +41,12 @@ config.keys = {
 	{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
+	-- Switch Tab
+	{ key = "}", mods = "CTRL|SHIFT", action = act.ActivateTabRelativeNoWrap(1) },
+	{ key = "{", mods = "CTRL|SHIFT", action = act.ActivateTabRelativeNoWrap(-1) },
+	-- Move Tab
+	{ key = "<", mods = "CTRL|SHIFT", action = act.MoveTabRelative(-1) },
+	{ key = ">", mods = "CTRL|SHIFT", action = act.MoveTabRelative(1) },
 	-- Fullscreen
 	{ key = "F11", action = act.ToggleFullScreen },
 	-- Font Size
