@@ -9,7 +9,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.font_size = 14
-config.color_scheme = "carbonfox"
+config.color_scheme = "Dark Pastel"
 
 config.window_padding = {
 	left = 0,
