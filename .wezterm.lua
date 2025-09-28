@@ -8,6 +8,15 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.initial_cols = 120
 config.initial_rows = 28
 
+-- Tab Bar
+config.use_fancy_tab_bar = false
+config.tab_max_width = 40
+config.colors = {
+	tab_bar = {
+		background = "#000000",
+	},
+}
+
 config.font_size = 14
 config.color_scheme = "Dark Pastel"
 
