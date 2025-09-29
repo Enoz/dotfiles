@@ -16,7 +16,7 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 - fzf
 - tree-sitter-cli
-- Hack Nerd Font
+- FiraCode Nerd Font
 
 ### Optional Dependencies
 
