@@ -63,6 +63,11 @@ config.keys = {
 	{ key = "-", mods = "CTRL", action = "DisableDefaultAssignment" },
 	{ key = "=", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
 	{ key = "-", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
+	-- Resizing
+	{ key = "UpArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "DownArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "LeftArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "RightArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 }
 
 config.key_tables = {
