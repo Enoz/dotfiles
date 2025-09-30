@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Medium" })
+config.font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" })
 
 config.initial_cols = 120
 config.initial_rows = 28
