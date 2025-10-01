@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" })
+config.font = wezterm.font("FiraCode Nerd Font")
 
 config.initial_cols = 120
 config.initial_rows = 28
@@ -17,8 +17,8 @@ config.colors = {
 	},
 }
 
-config.font_size = 14
-config.color_scheme = "Dark Pastel"
+config.font_size = 12
+config.color_scheme = "Dark Pastel (Gogh)"
 
 config.tab_bar_at_bottom = true
 
