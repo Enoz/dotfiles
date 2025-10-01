@@ -4,13 +4,15 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("FiraCode Nerd Font")
+-- Disable Ligatures
+config.harfbuzz_features = { "calt=0" }
 
 config.initial_cols = 120
 config.initial_rows = 28
 
 -- Tab Bar
 config.use_fancy_tab_bar = false
-config.tab_max_width = 40
+config.tab_max_width = 64
 config.colors = {
 	tab_bar = {
 		background = "#000000",
