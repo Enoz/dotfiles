@@ -1,11 +1,13 @@
 return {
-	"navarasu/onedark.nvim",
-	priority = 1000, -- make sure to load this before all the other start plugins
+	"EdenEast/nightfox.nvim",
 	config = function()
-		require("onedark").setup({
-			style = "deep",
+		require("nightfox").setup({
+			groups = {
+				all = {
+					Visual = { bg = "#40313b" },
+				},
+			},
 		})
-		-- Enable theme
-		require("onedark").load()
+		vim.cmd("colorscheme carbonfox")
 	end,
 }
