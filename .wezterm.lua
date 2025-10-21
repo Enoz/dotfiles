@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "DemiBold" })
+config.font = wezterm.font("FiraCode Nerd Font Mono")
 -- Disable Ligatures
 config.harfbuzz_features = { "calt=0" }
 
