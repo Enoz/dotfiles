@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("FiraCode Nerd Font Mono", {weight="DemiBold"})
+config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "DemiBold" })
 -- Disable Ligatures
 config.harfbuzz_features = { "calt=0" }
 
@@ -21,6 +21,8 @@ config.colors = {
 
 config.font_size = 12
 config.color_scheme = "Dark Pastel (Gogh)"
+
+config.default_cursor_style = "SteadyBar"
 
 config.tab_bar_at_bottom = true
 
