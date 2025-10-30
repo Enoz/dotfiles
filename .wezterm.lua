@@ -84,5 +84,10 @@ config.key_tables = {
 	},
 }
 
--- Finally, return the configuration to wezterm:
+-- Windows Powershell Config
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "powershell.exe", "-NoLogo" }
+end
+
 return config
