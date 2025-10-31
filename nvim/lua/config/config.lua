@@ -42,6 +42,22 @@ vim.opt.smartindent = true
 
 vim.opt.clipboard = "unnamedplus"
 
+-- Use win32yank only if it exists in PATH
+if vim.fn.executable("win32yank.exe") == 1 then
+	vim.g.clipboard = {
+		name = "win32yank",
+		copy = {
+			["+"] = "win32yank.exe -i --crlf",
+			["*"] = "win32yank.exe -i --crlf",
+		},
+		paste = {
+			["+"] = "win32yank.exe -o --lf",
+			["*"] = "win32yank.exe -o --lf",
+		},
+		cache_enabled = 0,
+	}
+end
+
 -- Yank highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -56,4 +72,3 @@ vim.keymap.set("n", "<C-=>", "<cmd>copen<CR>", { silent = true })
 vim.keymap.set("n", "<C-->", "<cmd>cclose<CR>", { silent = true })
 vim.keymap.set("n", "]q", "<cmd>:cnext<CR>", { desc = "Next Quickfix Item" })
 vim.keymap.set("n", "[q", "<cmd>:cprev<CR>", { desc = "Previous Quickfix Item" })
-
