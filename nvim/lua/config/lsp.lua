@@ -11,6 +11,7 @@ vim.lsp.enable({
 	"yaml-ls",
 	"svelte",
 	"clang",
+	"omnisharp",
 })
 
 vim.diagnostic.config({
