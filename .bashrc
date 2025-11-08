@@ -18,8 +18,10 @@ fi
 alias ls='ls --color=auto'
 alias lg='lazygit'
 alias grep='grep --color=auto'
-alias f='cd $(fd --type directory | fzf)'
-alias dsa='docker kill $(docker ps -q) && docker container prune -f'
-alias s="kitten ssh"
 PS1='(\[\e[38;5;45m\]${PWD}\[\e[0m\]) \$ '
 export EDITOR="nvim"
+
+# Load fzf shell integration if fzf is available
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
+fi
