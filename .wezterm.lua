@@ -90,4 +90,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "wsl.exe", "-d", "archlinux" }
 end
 
+config.allow_win32_input_mode = false
+
 return config
