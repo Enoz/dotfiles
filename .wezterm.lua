@@ -88,8 +88,7 @@ config.key_tables = {
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "wsl.exe", "-d", "archlinux" }
+	config.allow_win32_input_mode = false
 end
-
-config.allow_win32_input_mode = false
 
 return config
