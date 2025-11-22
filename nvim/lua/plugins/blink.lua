@@ -1,8 +1,24 @@
 return {
 	"saghen/blink.cmp",
 	lazy = false,
-	dependencies = "rafamadriz/friendly-snippets",
-    version="1.*",
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		{
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			event = "InsertEnter",
+			opts = {
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+				filetypes = {
+					markdown = true,
+					help = true,
+				},
+			},
+		},
+		"fang2hou/blink-copilot",
+	},
+	version = "1.*",
 	opts = {
 		appearance = {
 			nerd_font_variant = "mono",
@@ -71,7 +87,13 @@ return {
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+				},
+			},
 		},
 		cmdline = {
 			enabled = true,
