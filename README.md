@@ -42,9 +42,10 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | eslint          | eslint-language-server                                                                                                                                                       | vscode-langservers-extracted |
 | terraform-ls    | terraform-ls [AUR](https://aur.archlinux.org/packages/terraform-ls)                                                                                                          | terraform-ls                 |
 | yaml-ls         | yaml-language-server                                                                                                                                                         | yaml-language-server         |
-| svelte          | svelte-language-server-git                                                                                                                                                   | svelte-language-server       |
+| svelte          | svelte-language-server                                                                                                                                                       | svelte-language-server       |
 | jdtls           | jdtls                                                                                                                                                                        | jdtls                        |
 | clang           | clang                                                                                                                                                                        | clang                        |
+| csharp          | omnisharp-roslyn-bin [AUR](https://aur.archlinux.org/packages/omnisharp-roslyn-bin)                                                                                          | ?                            |
 
 #### Formatters
 
