@@ -40,6 +40,8 @@ config.disable_default_key_bindings = true
 config.keys = {
 	{ key = "+", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
 	{ key = "_", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
+	{ key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
+	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
 }
 
 -- Windows Powershell Config
