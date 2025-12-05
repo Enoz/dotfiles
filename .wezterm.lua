@@ -34,32 +34,9 @@ config.window_padding = {
 }
 
 config.keys = {
-	-- Close Window
-	{
-		key = "Backspace",
-		mods = "CTRL|SHIFT",
-		action = act.CloseCurrentPane({ confirm = false }),
-	},
-	-- Split Pane
-	{
-		key = "n",
-		mods = "CTRL|SHIFT",
-		action = act.ActivateKeyTable({
-			name = "split_pane",
-			timeout_milliseconds = 1000,
-		}),
-	},
-	-- Switch Pane
-	{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
-	{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
-	{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
-	-- Switch Tab
-	{ key = "}", mods = "CTRL|SHIFT", action = act.ActivateTabRelativeNoWrap(1) },
-	{ key = "{", mods = "CTRL|SHIFT", action = act.ActivateTabRelativeNoWrap(-1) },
-	-- Move Tab
-	{ key = "<", mods = "CTRL|SHIFT", action = act.MoveTabRelative(-1) },
-	{ key = ">", mods = "CTRL|SHIFT", action = act.MoveTabRelative(1) },
+	{ key = "n", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "l", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "p", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
 	-- Fullscreen
 	{ key = "F11", action = act.ToggleFullScreen },
 	-- Font Size
@@ -67,21 +44,6 @@ config.keys = {
 	{ key = "-", mods = "CTRL", action = "DisableDefaultAssignment" },
 	{ key = "=", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
 	{ key = "-", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
-	-- Resizing
-	{ key = "UpArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "DownArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "LeftArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "RightArrow", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
-}
-
-config.key_tables = {
-	-- Split Pane
-	split_pane = {
-		{ key = "h", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Left" }) },
-		{ key = "j", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Down" }) },
-		{ key = "k", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Up" }) },
-		{ key = "l", mods = "CTRL|SHIFT", action = act.SplitPane({ direction = "Right" }) },
-	},
 }
 
 -- Windows Powershell Config
