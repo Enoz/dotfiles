@@ -2,7 +2,7 @@ return {
 	"saghen/blink.cmp",
 	lazy = false,
 	dependencies = "rafamadriz/friendly-snippets",
-    version="1.*",
+	version = "1.*",
 	opts = {
 		appearance = {
 			nerd_font_variant = "mono",
@@ -18,7 +18,8 @@ return {
 			["<C-j>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
 
-			["<C-Space>"] = { "show" },
+			["<C-s>"] = { "show" },
+
 			["<C-e>"] = { "hide" },
 
 			["<Tab>"] = { "snippet_forward", "fallback" },

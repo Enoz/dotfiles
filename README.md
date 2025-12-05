@@ -6,6 +6,12 @@
 ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ```
 
+## tmux
+
+```bash
+ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
+```
+
 ## Neovim
 
 ```bash
