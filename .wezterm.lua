@@ -35,17 +35,11 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.disable_default_key_bindings = true
+
 config.keys = {
-	{ key = "n", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
-	{ key = "l", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
-	{ key = "p", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
-	-- Fullscreen
-	{ key = "F11", action = act.ToggleFullScreen },
-	-- Font Size
-	{ key = "=", mods = "CTRL", action = "DisableDefaultAssignment" },
-	{ key = "-", mods = "CTRL", action = "DisableDefaultAssignment" },
-	{ key = "=", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
-	{ key = "-", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
+	{ key = "+", mods = "CTRL|SHIFT", action = act.IncreaseFontSize },
+	{ key = "_", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
 }
 
 -- Windows Powershell Config
