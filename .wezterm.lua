@@ -40,6 +40,7 @@ config.keys = {
 	{ key = "_", mods = "CTRL|SHIFT", action = act.DecreaseFontSize },
 	{ key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
 	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+	{ key = "F11", mods = "", action = act.ToggleFullScreen },
 }
 
 -- Windows Powershell Config
