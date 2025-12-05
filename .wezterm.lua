@@ -22,8 +22,6 @@ config.colors = {
 config.font_size = 12
 config.color_scheme = "Dark Pastel (Gogh)"
 
-config.default_cursor_style = "SteadyBar"
-
 config.tab_bar_at_bottom = true
 
 config.hide_tab_bar_if_only_one_tab = true
