@@ -12,6 +12,12 @@ return {
 		"olimorris/codecompanion.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				dependencies = { "nvim-treesitter/nvim-treesitter" },
+				ft = { "codecompanion" },
+				opts = {},
+			},
 		},
 		config = function()
 			local codecompanion = require("codecompanion")
