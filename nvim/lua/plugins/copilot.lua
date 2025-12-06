@@ -18,7 +18,6 @@ return {
 			codecompanion.setup({
 				ignore_warnings = true,
 			})
-
 			vim.keymap.set({ "n", "v" }, "<leader>gc", codecompanion.chat, { desc = "AI Chat" })
 		end,
 	},
