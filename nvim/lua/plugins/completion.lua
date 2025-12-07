@@ -23,6 +23,11 @@ return {
 			local codecompanion = require("codecompanion")
 			codecompanion.setup({
 				ignore_warnings = true,
+				display = {
+					action_palette = {
+						provider = "fzf_lua",
+					},
+				},
 			})
 
 			vim.keymap.set({ "n", "v" }, "<leader>gc", codecompanion.chat, { desc = "AI Chat" })
