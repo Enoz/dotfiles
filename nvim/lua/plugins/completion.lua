@@ -12,6 +12,7 @@ return {
 		"olimorris/codecompanion.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"ibhagwan/fzf-lua",
 			{
 				"MeanderingProgrammer/render-markdown.nvim",
 				dependencies = { "nvim-treesitter/nvim-treesitter" },
