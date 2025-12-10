@@ -13,14 +13,16 @@ config.initial_rows = 28
 -- Tab Bar
 config.use_fancy_tab_bar = false
 config.tab_max_width = 64
-config.colors = {
-	tab_bar = {
-		background = "#000000",
-	},
-}
 
 config.font_size = 12
-config.color_scheme = "Dark Pastel (Gogh)"
+
+config.colors = {
+	background = "black",
+	foreground = "white",
+	cursor_bg = "white",
+	cursor_fg = "black",
+	cursor_border = "white",
+}
 
 config.tab_bar_at_bottom = true
 
