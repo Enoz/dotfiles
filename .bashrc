@@ -25,3 +25,7 @@ export EDITOR="nvim"
 if command -v fzf >/dev/null 2>&1; then
     eval "$(fzf --bash)"
 fi
+
+# Used for SSH Agent service
+# systemctl --user enable ssh-agent.service
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
