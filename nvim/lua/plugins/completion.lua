@@ -1,6 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		enabled = vim.env.DISABLE_COPILOT ~= "1",
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = false },
