@@ -57,7 +57,6 @@ return {
 				"python",
 				"regex",
 				"requirements",
-				"robots",
 				"rust",
 				"scss",
 				"sproto",
