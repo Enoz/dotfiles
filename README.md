@@ -18,6 +18,12 @@ ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
 ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ```
 
+### Environment Variables
+
+| Variable          | Values   | Details                      |
+| ----------------- | -------- | ---------------------------- |
+| `DISABLE_COPILOT` | `1`, `0` | Disables copilot integration |
+
 ### Dependencies
 
 - fzf
