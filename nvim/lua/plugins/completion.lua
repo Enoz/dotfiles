@@ -24,6 +24,14 @@ return {
 		config = function()
 			local codecompanion = require("codecompanion")
 			codecompanion.setup({
+				strategies = {
+					chat = {
+						adapter = vim.env.DISABLE_COPILOT == "1" and "gemini_cli" or "copilot",
+					},
+					inline = {
+						adapter = vim.env.DISABLE_COPILOT == "1" and "gemini_cli" or "copilot",
+					},
+				},
 				ignore_warnings = true,
 				display = {
 					action_palette = {
@@ -178,3 +186,6 @@ return {
 		},
 	},
 }
+
+
+
