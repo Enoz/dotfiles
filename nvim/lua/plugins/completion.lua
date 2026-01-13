@@ -24,6 +24,18 @@ return {
 		config = function()
 			local codecompanion = require("codecompanion")
 			codecompanion.setup({
+				adapters = {
+					gemini_cli = function()
+						return require("codecompanion.adapters").extend("gemini_cli", {
+							commands = {
+								default = {
+									"gemini",
+									"--experimental-acp",
+								},
+							},
+						})
+					end,
+				},
 				strategies = {
 					chat = {
 						adapter = vim.env.DISABLE_COPILOT == "1" and "gemini_cli" or "copilot",
@@ -186,6 +198,3 @@ return {
 		},
 	},
 }
-
-
-
