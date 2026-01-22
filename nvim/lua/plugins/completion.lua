@@ -25,16 +25,25 @@ return {
 			local codecompanion = require("codecompanion")
 			codecompanion.setup({
 				adapters = {
-					gemini_cli = function()
-						return require("codecompanion.adapters").extend("gemini_cli", {
-							commands = {
-								default = {
-									"gemini",
-									"--experimental-acp",
+					acp = {
+						gemini_cli = function()
+							return require("codecompanion.adapters").extend("gemini_cli", {
+								commands = {
+									default = {
+										"gemini",
+										"--experimental-acp",
+									},
 								},
-							},
-						})
-					end,
+							})
+						end,
+						claude_code = function()
+							return require("codecompanion.adapters").extend("claude_coode", {
+								env = {
+									CLAUDE_CODE_OAUTH_TOKEN = vim.env.CLAUDE_CODE_TOKEN,
+								},
+							})
+						end,
+					},
 				},
 				strategies = {
 					chat = {
