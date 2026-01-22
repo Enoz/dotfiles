@@ -20,10 +20,9 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 ### Environment Variables
 
-| Variable            | Values   | Details                               |
-| ------------------- | -------- | ------------------------------------- |
-| `DISABLE_COPILOT`   | `1`, `0` | Disables copilot integration          |
-| `CLAUDE_CODE_TOKEN` | Token    | Adds the token to the claude_code env |
+| Variable          | Values   | Details                      |
+| ----------------- | -------- | ---------------------------- |
+| `DISABLE_COPILOT` | `1`, `0` | Disables copilot integration |
 
 ### Dependencies
 
