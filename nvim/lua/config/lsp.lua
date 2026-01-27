@@ -12,6 +12,7 @@ vim.lsp.enable({
 	"svelte",
 	"clang",
 	"omnisharp",
+	"lemminx",
 })
 
 vim.diagnostic.config({
