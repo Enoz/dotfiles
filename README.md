@@ -20,9 +20,9 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 ### Environment Variables
 
-| Variable          | Values   | Details                      |
-| ----------------- | -------- | ---------------------------- |
-| `DISABLE_COPILOT` | `1`, `0` | Disables copilot integration |
+| Variable         | Values   | Details                      |
+| ---------------- | -------- | ---------------------------- |
+| `ENABLE_COPILOT` | `1`, `0` | Disables copilot integration |
 
 ### Dependencies
 

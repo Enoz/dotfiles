@@ -1,7 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		enabled = vim.env.DISABLE_COPILOT ~= "1",
+		enabled = vim.env.ENABLE_COPILOT == "1",
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = false },
@@ -40,10 +40,10 @@ return {
 				},
 				strategies = {
 					chat = {
-						adapter = vim.env.DISABLE_COPILOT == "1" and "gemini_cli" or "copilot",
+						adapter = vim.env.ENABLE_COPILOT ~= "1" and "gemini_cli" or "copilot",
 					},
 					inline = {
-						adapter = vim.env.DISABLE_COPILOT == "1" and "gemini_cli" or "copilot",
+						adapter = vim.env.ENABLE_COPILOT ~= "1" and "gemini_cli" or "copilot",
 					},
 				},
 				ignore_warnings = true,
