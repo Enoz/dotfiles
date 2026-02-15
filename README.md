@@ -74,11 +74,17 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 
 #### Godot Integration
 
+##### Setup
+
 Godot `Editor->Text Editor->External`
 
 - Use External Editor -> `On`
-- Exec Path -> `kitty`
-- Exec Flags -> `-e nvim --server /tmp/godot.pipe --remote {file}`
+- Exec Path -> `nvim`
+- Exec Flags -> `--server {project}/server.pipe --remote-send "<C-\><C-N>:e {file}<CR>:call cursor({line}+1,{col})<CR>"`
+
+##### Usage
+
+Open nvim in the project's root directory. Aftewards, anytime a script is opened in the Godot editor, it will be opened in neovim instead.
 
 ## kitty
 

@@ -13,6 +13,7 @@ vim.lsp.enable({
 	"clang",
 	"omnisharp",
 	"lemminx",
+	"gdscript",
 })
 
 vim.diagnostic.config({
