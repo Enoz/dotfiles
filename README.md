@@ -66,12 +66,6 @@ ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 | prettier  | prettier | prettier |
 | stylua    | stylua   | stylua   |
 
-#### Debuggers
-
-| DAP   | Arch  | Brew  |
-| ----- | ----- | ----- |
-| delve | delve | delve |
-
 #### Godot Integration
 
 ##### Setup
