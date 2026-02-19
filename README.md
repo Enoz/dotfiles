@@ -12,6 +12,12 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
 ```
 
+## Opencode
+
+```bash
+ln -s -f ~/dotfiles/opencode.json ~/.config/opencode/opencode.json
+```
+
 ## Neovim
 
 ```bash
