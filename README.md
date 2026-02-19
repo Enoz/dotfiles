@@ -24,12 +24,6 @@ ln -s -f ~/dotfiles/opencode.json ~/.config/opencode/opencode.json
 ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
 ```
 
-### Environment Variables
-
-| Variable         | Values   | Details                      |
-| ---------------- | -------- | ---------------------------- |
-| `ENABLE_COPILOT` | `1`, `0` | Disables copilot integration |
-
 ### Dependencies
 
 - fzf

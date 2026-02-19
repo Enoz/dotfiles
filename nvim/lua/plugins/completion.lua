@@ -1,74 +1,10 @@
 return {
 	{
-		"zbirenbaum/copilot.lua",
-		enabled = vim.env.ENABLE_COPILOT == "1",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			})
-		end,
-	},
-	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"ibhagwan/fzf-lua",
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				dependencies = { "nvim-treesitter/nvim-treesitter" },
-				ft = { "codecompanion" },
-				opts = {},
-			},
-		},
-		config = function()
-			local codecompanion = require("codecompanion")
-			codecompanion.setup({
-				adapters = {
-					acp = {
-						gemini_cli = function()
-							return require("codecompanion.adapters").extend("gemini_cli", {
-								commands = {
-									default = {
-										"gemini",
-										"--experimental-acp",
-									},
-								},
-							})
-						end,
-					},
-				},
-				strategies = {
-					chat = {
-						adapter = vim.env.ENABLE_COPILOT ~= "1" and "gemini_cli" or "copilot",
-					},
-					inline = {
-						adapter = vim.env.ENABLE_COPILOT ~= "1" and "gemini_cli" or "copilot",
-					},
-				},
-				ignore_warnings = true,
-				display = {
-					action_palette = {
-						provider = "fzf_lua",
-					},
-				},
-			})
-
-			vim.keymap.set({ "n", "v" }, "<leader>gc", codecompanion.chat, { desc = "AI Chat" })
-		end,
-	},
-	{
 
 		"saghen/blink.cmp",
 		lazy = false,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			{
-				"fang2hou/blink-copilot",
-				opts = {
-					debounce = 0,
-				},
-			},
 		},
 		version = "1.*",
 		opts = {
@@ -87,11 +23,6 @@ return {
 				["<C-k>"] = { "select_prev", "fallback" },
 
 				["<C-s>"] = { "show" },
-				["<C-g>"] = {
-					function(cmp)
-						cmp.show({ providers = { "copilot" } })
-					end,
-				},
 				["<C-e>"] = { "hide" },
 
 				["<Tab>"] = { "snippet_forward", "fallback" },
@@ -145,14 +76,6 @@ return {
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
-				providers = {
-					copilot = {
-						name = "copilot",
-						module = "blink-copilot",
-						score_offset = 100,
-						async = true,
-					},
-				},
 			},
 			cmdline = {
 				enabled = true,
