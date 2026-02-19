@@ -80,12 +80,6 @@ Godot `Editor->Text Editor->External`
 
 Open nvim in the project's root directory. Aftewards, anytime a script is opened in the Godot editor, it will be opened in neovim instead.
 
-## kitty
-
-```bash
-ln -s -f ~/dotfiles/kitty ~/.config/kitty
-```
-
 ## Wezterm
 
 ```bash
