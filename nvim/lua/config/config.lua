@@ -25,6 +25,7 @@ vim.opt.scrolloff = 8
 
 -- Delay without input & CursorHold time for plugins
 vim.opt.updatetime = 50
+vim.opt.autoread = true
 
 -- case-insensitive search
 vim.opt.ignorecase = true
