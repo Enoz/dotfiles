@@ -30,3 +30,6 @@ fi
 # Used for SSH Agent service
 # systemctl --user enable ssh-agent.service
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# no pip outside a venv
+export PIP_REQUIRE_VIRTUALENV=true
