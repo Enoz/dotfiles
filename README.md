@@ -18,6 +18,12 @@ ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
 ln -s -f ~/dotfiles/opencode.json ~/.config/opencode/opencode.json
 ```
 
+## keyd
+
+```bash
+ln -s -f ~/dotfiles/keyd/ /etc/
+```
+
 ## Neovim
 
 ```bash
