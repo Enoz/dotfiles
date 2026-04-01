@@ -75,3 +75,11 @@ vim.keymap.set("n", "<C-=>", "<cmd>copen<CR>", { silent = true })
 vim.keymap.set("n", "<C-->", "<cmd>cclose<CR>", { silent = true })
 vim.keymap.set("n", "]q", "<cmd>:cnext<CR>", { desc = "Next Quickfix Item" })
 vim.keymap.set("n", "[q", "<cmd>:cprev<CR>", { desc = "Previous Quickfix Item" })
+
+-- Copy line number
+vim.api.nvim_set_keymap(
+	"v",
+	"go",
+	':<C-u>let @+ = expand("%:p") . ":" . line("\'<") . "-" . line("\'>")<CR>',
+	{ noremap = true }
+)
