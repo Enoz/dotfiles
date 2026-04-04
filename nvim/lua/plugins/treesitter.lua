@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		lazy = false,
-		branch = "main",
+		commit = "7caec274fd19c12b55902a5b795100d21531391f",
 		config = function()
 			local ts = require("nvim-treesitter")
 			-- Install my commonly used languages
