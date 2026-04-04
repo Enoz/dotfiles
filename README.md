@@ -12,12 +12,6 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
 ```
 
-## keyd
-
-```bash
-ln -s -f ~/dotfiles/keyd/ /etc/
-```
-
 ## Neovim
 
 ```bash
