@@ -18,7 +18,6 @@ fi
 alias ls='ls --color=auto'
 alias lg='lazygit'
 alias grep='grep --color=auto'
-alias oc="opencode --port"
 PS1='(\[\e[38;5;45m\]${PWD}\[\e[0m\]) \$ '
 export EDITOR="nvim"
 
