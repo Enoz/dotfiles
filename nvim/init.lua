@@ -51,13 +51,16 @@ require("vim._core.ui2").enable({
 -- Yank line numbers
 vim.keymap.set("v", "go", function()
 	local path = vim.fn.expand("%:p")
-	local start_line = vim.fn.line("'<")
-	local end_line = vim.fn.line("'>")
+	local start_line = vim.fn.line("v")
+	local end_line = vim.fn.line(".")
+	if start_line > end_line then
+		start_line, end_line = end_line, start_line
+	end
 	local content
 	if start_line == end_line then
 		content = path .. ":L" .. start_line
 	else
-        content = path .. ":L" .. start_line .. "-L" .. end_line
+		content = path .. ":L" .. start_line .. "-L" .. end_line
 	end
 	vim.fn.setreg("+", content)
 	vim.notify("Copied: " .. content)
