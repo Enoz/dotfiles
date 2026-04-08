@@ -1,6 +1,6 @@
 vim.pack.add({
-	"https://github.com/ibhagwan/fzf-lua",
-	"https://github.com/nvim-tree/nvim-web-devicons",
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 })
 
 require("fzf-lua").setup({

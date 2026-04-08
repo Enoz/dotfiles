@@ -1,5 +1,5 @@
 vim.pack.add({
-	"https://github.com/neovim/nvim-lspconfig",
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
 -- Lua

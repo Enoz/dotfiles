@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/EdenEast/nightfox.nvim" })
+vim.pack.add({ { src = "https://github.com/EdenEast/nightfox.nvim" } })
 
 require("nightfox").setup({
 	groups = {
