@@ -53,7 +53,6 @@ local servers = {
 	"clangd",
 	"omnisharp",
 	"lemminx",
-	"gdscript",
 }
 
 for _, server in ipairs(servers) do
