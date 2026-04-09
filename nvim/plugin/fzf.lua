@@ -29,9 +29,3 @@ vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "LSP Definitions" })
 vim.keymap.set("n", "gD", fzf.lsp_declarations, { desc = "LSP Declarations" })
 vim.keymap.set("n", "gs", fzf.lsp_document_symbols, { desc = "LSP Document Symbols" })
 vim.keymap.set("n", "gS", fzf.lsp_live_workspace_symbols, { desc = "LSP Workspace Symbols" })
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-
--- Additional LSP keymaps
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })

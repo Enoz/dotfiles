@@ -58,3 +58,12 @@ local servers = {
 for _, server in ipairs(servers) do
 	vim.lsp.enable(server)
 end
+
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "Previous Diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "Next Diagnostic" })
