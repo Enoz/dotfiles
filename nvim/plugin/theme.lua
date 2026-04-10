@@ -1,11 +1,3 @@
-vim.pack.add({ { src = "https://github.com/EdenEast/nightfox.nvim" } })
+vim.pack.add({ { src = "https://github.com/Shatur/neovim-ayu" } })
 
-require("nightfox").setup({
-	groups = {
-		all = {
-			Visual = { bg = "#40313b" },
-		},
-	},
-})
-
-vim.cmd("colorscheme carbonfox")
+vim.cmd("colorscheme ayu-dark")
