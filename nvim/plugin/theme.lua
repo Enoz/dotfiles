@@ -1,6 +1,11 @@
-vim.pack.add({
-	{ src = "https://github.com/nyoom-engineering/oxocarbon.nvim" },
+vim.pack.add({ { src = "https://github.com/EdenEast/nightfox.nvim" } })
+
+require("nightfox").setup({
+	groups = {
+		all = {
+			Visual = { bg = "#40313b" },
+		},
+	},
 })
-vim.cmd("colorscheme oxocarbon")
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "NONE" })
-vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#ffffff", bg = "NONE" })
+
+vim.cmd("colorscheme carbonfox")

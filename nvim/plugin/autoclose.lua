@@ -1,5 +1,5 @@
 vim.pack.add({
-	{ src = "https://github.com/nyoom-engineering/oxocarbon.nvim" },
+	{ src = "https://github.com/m4xshen/autoclose.nvim" },
 })
 
-vim.cmd.colorscheme "oxocarbon"
+require("autoclose").setup()
