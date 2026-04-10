@@ -70,12 +70,25 @@ vim.keymap.set("n", "<C-=>", "<cmd>copen<CR>", { desc = "Open quickfix list" })
 vim.keymap.set("n", "<C-->", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
 
 -- Plugin management
-vim.keymap.set("n", "<leader>ps", function()
-	vim.pack.status()
-end, { desc = "Show plugin status" })
 vim.keymap.set("n", "<leader>pu", function()
 	vim.pack.update(nil, { force = true })
 end, { desc = "Update plugins" })
 vim.keymap.set("n", "<leader>pr", function()
 	vim.pack.update(nil, { force = true, target = "lockfile" })
 end, { desc = "Restore plugins to lockfile" })
+vim.keymap.set("n", "<leader>pc", function()
+	local inactive = vim
+		.iter(vim.pack.get())
+		:filter(function(x)
+			return not x.active
+		end)
+		:map(function(x)
+			return x.spec.name
+		end)
+		:totable()
+	if #inactive == 0 then
+		vim.notify("No inactive plugins to clean")
+		return
+	end
+	vim.pack.del(inactive)
+end, { desc = "Clean inactive plugins" })

@@ -10,10 +10,6 @@ config.harfbuzz_features = { "calt=0" }
 config.initial_cols = 120
 config.initial_rows = 28
 
--- Tab Bar
-config.use_fancy_tab_bar = false
-config.tab_max_width = 64
-
 config.font_size = 12
 
 config.colors = {
@@ -23,8 +19,6 @@ config.colors = {
 	cursor_fg = "black",
 	cursor_border = "white",
 }
-
-config.tab_bar_at_bottom = true
 
 config.hide_tab_bar_if_only_one_tab = true
 
