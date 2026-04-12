@@ -1,3 +1,3 @@
-vim.pack.add({ { src = "https://github.com/Shatur/neovim-ayu" } })
+vim.pack.add({ { src = "https://github.com/bluz71/vim-moonfly-colors" } })
 
-vim.cmd("colorscheme ayu-dark")
+vim.cmd("colorscheme moonfly")
