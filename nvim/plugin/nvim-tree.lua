@@ -15,7 +15,7 @@ require("nvim-tree").setup({
 		float = {
 			enable = true,
 			open_win_config = {
-				border = "double",
+				border = "solid",
 			},
 		},
 		width = {
