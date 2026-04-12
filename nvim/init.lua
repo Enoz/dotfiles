@@ -15,6 +15,9 @@ vim.opt.mouse = "a"
 -- Better colors
 vim.opt.termguicolors = true
 
+-- Hide ~ on unused lines
+vim.opt.fcs = "eob: "
+
 -- Bottom/Top scroll padding
 vim.opt.scrolloff = 8
 
