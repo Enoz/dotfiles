@@ -24,16 +24,17 @@ cmp.setup({
 			preset = "none",
 			["<C-j>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-CR>"] = { "accept_and_enter", "fallback" },
+			["<C-CR>"] = { "accept", "fallback" },
 			["<Tab>"] = { "show_and_insert_or_accept_single", "select_next", "fallback" },
 			["<S-Tab>"] = { "show_and_insert_or_accept_single", "select_prev", "fallback" },
 			["<C-e>"] = { "cancel", "fallback" },
 		},
-		completion = { menu = { auto_show = true } },
+		completion = { list = { selection = { auto_insert = false } }, menu = { auto_show = true } },
 	},
 	appearance = { nerd_font_variant = "mono" },
 	sources = { default = { "lsp", "path", "snippets", "buffer" } },
 	completion = {
+		list = { selection = { auto_insert = false } },
 		menu = {
 			border = "rounded",
 			draw = {
