@@ -79,6 +79,12 @@ end, { desc = "Update plugins" })
 vim.keymap.set("n", "<leader>pr", function()
 	vim.pack.update(nil, { force = true, target = "lockfile" })
 end, { desc = "Restore plugins to lockfile" })
+-- Tab navigation
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "]t", "<cmd>tabnext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "[t", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+
 vim.keymap.set("n", "<leader>pc", function()
 	local inactive = vim
 		.iter(vim.pack.get())
