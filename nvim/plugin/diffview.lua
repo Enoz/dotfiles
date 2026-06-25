@@ -3,6 +3,9 @@ vim.pack.add({
 })
 
 require("codediff").setup({
+	explorer = {
+		view_mode = "tree",
+	},
 	keymaps = {
 		view = {
 			quit = "q",
