@@ -17,8 +17,6 @@ require("diffview").setup({
 				actions.goto_file_edit()
 				vim.cmd.DiffviewClose()
 			end, { desc = "Open file and close diffview" } },
-			{ "n", "<C-S-j>", actions.scroll_view(-0.25), { desc = "Scroll the view up" } },
-			{ "n", "<C-S-k>", actions.scroll_view(0.25),  { desc = "Scroll the view down" } },
 		},
 	},
 })
