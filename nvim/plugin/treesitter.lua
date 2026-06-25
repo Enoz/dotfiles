@@ -76,7 +76,7 @@ ts.install({
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "typescriptreact", unpack(ts.get_available()) },
 	callback = function()
-		ts.install({ vim.bo.filetype }):wait(30000)
+		ts.install({ vim.bo.filetype })
 		vim.treesitter.start()
 	end,
 })

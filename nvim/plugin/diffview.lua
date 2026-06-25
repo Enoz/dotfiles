@@ -1,33 +1,23 @@
 vim.pack.add({
-	{ src = "https://github.com/sindrets/diffview.nvim" },
+	{ src = "https://github.com/esmuellert/codediff.nvim" },
 })
 
-local actions = require("diffview.actions")
-
-require("diffview").setup({
+require("codediff").setup({
 	keymaps = {
 		view = {
-			{ "n", "gf", function()
-				actions.goto_file_edit()
-				vim.cmd.DiffviewClose()
-			end, { desc = "Open file and close diffview" } },
-		},
-		file_panel = {
-			{ "n", "gf", function()
-				actions.goto_file_edit()
-				vim.cmd.DiffviewClose()
-			end, { desc = "Open file and close diffview" } },
+			quit = "q",
+			close_on_open_in_prev_tab = true,
 		},
 	},
 })
 
-vim.keymap.set("n", "<leader>gv", ":DiffviewOpen<CR>", { desc = "Open DiffView" })
-vim.keymap.set("n", "<leader>gV", ":DiffviewClose<CR>", { desc = "Close DiffView" })
-vim.keymap.set("n", "<leader>gf", ":DiffviewFileHistory %<CR>", { desc = "File history" })
+vim.keymap.set("n", "<leader>gv", ":CodeDiff<CR>", { desc = "Open CodeDiff explorer" })
+vim.keymap.set("n", "<leader>gV", ":tabclose<CR>", { desc = "Close CodeDiff tab" })
+vim.keymap.set("n", "<leader>gf", ":CodeDiff history %<CR>", { desc = "File history" })
 vim.keymap.set("n", "<leader>gd", function()
 	vim.ui.input({ prompt = "Branch to diff against: ", default = "origin/main" }, function(branch)
 		if branch and #branch > 0 then
-			vim.cmd("DiffviewOpen " .. branch .. "...HEAD")
+			vim.cmd("CodeDiff " .. branch)
 		end
 	end)
-end, { desc = "Diff branch vs base" })
+end, { desc = "Diff branch vs HEAD" })
