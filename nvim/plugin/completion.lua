@@ -1,20 +1,47 @@
-vim.o.autocomplete = true
+vim.o.autocomplete = false
 
-vim.o.pumborder = "rounded"
-vim.o.pummaxwidth = 40
-vim.o.completeopt = "menu,menuone,noinsert,popup"
-
--- Enable native completion for LSP clients with autotrigger
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local bufnr = args.buf
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client and client:supports_method("textDocument/completion", bufnr) then
-			vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-		end
-	end,
+vim.pack.add({
+	"https://github.com/saghen/blink.lib",
+	"https://github.com/saghen/blink.cmp",
+	"https://github.com/rafamadriz/friendly-snippets",
 })
 
--- Navigation Mappings (Insert Mode)
-vim.keymap.set("i", "<C-j>", "<C-n>", { desc = "Next completion item" })
-vim.keymap.set("i", "<C-k>", "<C-p>", { desc = "Previous completion item" })
+local cmp = require("blink.cmp")
+cmp.build():pwait()
+
+cmp.setup({
+	keymap = {
+		preset = "none",
+		["<C-j>"] = { "select_next", "fallback" },
+		["<C-k>"] = { "select_prev", "fallback" },
+		["<C-CR>"] = { "accept", "fallback" },
+		["<Tab>"] = { "snippet_forward", "fallback" },
+		["<S-Tab>"] = { "snippet_backward", "fallback" },
+		["<C-e>"] = { "hide", "fallback" },
+		["<C-S-K>"] = { "scroll_documentation_up", "fallback" },
+		["<C-S-J>"] = { "scroll_documentation_down", "fallback" },
+	},
+	cmdline = {
+		keymap = {
+			preset = "none",
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-CR>"] = { "accept_and_enter", "fallback" },
+			["<Tab>"] = { "show_and_insert_or_accept_single", "select_next", "fallback" },
+			["<S-Tab>"] = { "show_and_insert_or_accept_single", "select_prev", "fallback" },
+			["<C-e>"] = { "cancel", "fallback" },
+		},
+		completion = { menu = { auto_show = true } },
+	},
+	appearance = { nerd_font_variant = "mono" },
+	sources = { default = { "lsp", "path", "snippets", "buffer" } },
+	completion = {
+		menu = {
+			border = "rounded",
+			draw = {
+				columns = { { "kind_icon" }, { "label", gap = 1 }, { "kind" } },
+			},
+		},
+	},
+	signature = { enabled = true },
+})

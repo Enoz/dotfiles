@@ -5,7 +5,7 @@ vim.pack.add({
 })
 require("render-markdown").setup({
 	enabled = false,
-	completions = { lsp = { enabled = true } },
+	win_options = { concealcursor = "nvic" },
 })
 
 vim.keymap.set("n", "<leader>r", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle Markdown Render" })
