@@ -1,13 +1,11 @@
 vim.o.autocomplete = false
 
 vim.pack.add({
-	"https://github.com/saghen/blink.lib",
-	"https://github.com/saghen/blink.cmp",
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range(">=1.0.0 <2.0.0") },
 	"https://github.com/rafamadriz/friendly-snippets",
 })
 
 local cmp = require("blink.cmp")
-cmp.build():pwait()
 
 cmp.setup({
 	keymap = {
@@ -44,4 +42,5 @@ cmp.setup({
 		},
 	},
 	signature = { enabled = true },
+	fuzzy = { implementation = "lua" },
 })
