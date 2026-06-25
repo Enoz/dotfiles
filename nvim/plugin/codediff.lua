@@ -6,11 +6,6 @@ require("codediff").setup({
 	explorer = {
 		view_mode = "tree",
 	},
-	keymaps = {
-		view = {
-			quit = "q",
-		},
-	},
 })
 
 vim.keymap.set("n", "<leader>gv", ":CodeDiff<CR>", { desc = "Open CodeDiff explorer" })
