@@ -2,7 +2,24 @@ vim.pack.add({
 	{ src = "https://github.com/sindrets/diffview.nvim" },
 })
 
-require("diffview").setup({})
+local actions = require("diffview.actions")
+
+require("diffview").setup({
+	keymaps = {
+		view = {
+			{ "n", "gf", function()
+				actions.goto_file_edit()
+				vim.cmd.DiffviewClose()
+			end, { desc = "Open file and close diffview" } },
+		},
+		file_panel = {
+			{ "n", "gf", function()
+				actions.goto_file_edit()
+				vim.cmd.DiffviewClose()
+			end, { desc = "Open file and close diffview" } },
+		},
+	},
+})
 
 vim.keymap.set("n", "<leader>gv", ":DiffviewOpen<CR>", { desc = "Open DiffView" })
 vim.keymap.set("n", "<leader>gV", ":DiffviewClose<CR>", { desc = "Close DiffView" })
