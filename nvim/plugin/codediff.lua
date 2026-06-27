@@ -11,9 +11,15 @@ require("codediff").setup({
 vim.keymap.set("n", "<leader>gv", ":CodeDiff<CR>", { desc = "Open CodeDiff explorer" })
 vim.keymap.set("n", "<leader>gf", ":CodeDiff history %<CR>", { desc = "File history" })
 vim.keymap.set("n", "<leader>gd", function()
-	vim.ui.input({ prompt = "Branch to diff against: ", default = "main" }, function(branch)
-		if branch and #branch > 0 then
-			vim.cmd("CodeDiff " .. branch .. "...HEAD")
-		end
-	end)
+	require("fzf-lua").git_branches({
+		remotes = "all",
+		actions = {
+			["enter"] = function(selected)
+				local branch = selected[1]:match("^[%*+]*%s*([^%s]+)")
+				if branch then
+					vim.cmd("CodeDiff " .. branch .. "...HEAD")
+				end
+			end,
+		},
+	})
 end, { desc = "Diff branch vs HEAD" })
