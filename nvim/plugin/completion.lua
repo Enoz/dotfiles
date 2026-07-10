@@ -1,7 +1,7 @@
 vim.o.autocomplete = false
 
 vim.pack.add({
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range(">=1.0.0 <2.0.0") },
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1.0.0") },
 	"https://github.com/rafamadriz/friendly-snippets",
 })
 

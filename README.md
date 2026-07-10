@@ -14,14 +14,28 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 
 ## tmux
 
+The command below replaces an existing symlink, but refuses to overwrite a real file or directory. Back up or remove an existing `~/.config/tmux` first.
+
 ```bash
-ln -s -f ~/dotfiles/tmux/ ~/.config/tmux
+mkdir -p "$HOME/.config"
+if [ -e "$HOME/.config/tmux" ] && [ ! -L "$HOME/.config/tmux" ]; then
+    echo "Refusing to overwrite $HOME/.config/tmux" >&2
+else
+    ln -sfn "$HOME/dotfiles/tmux" "$HOME/.config/tmux"
+fi
 ```
 
 ## Neovim
 
+The command below replaces an existing symlink, but refuses to overwrite a real file or directory. Back up or remove an existing `~/.config/nvim` first.
+
 ```bash
-ln -s -f ~/dotfiles/nvim/ ~/.config/nvim
+mkdir -p "$HOME/.config"
+if [ -e "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+    echo "Refusing to overwrite $HOME/.config/nvim" >&2
+else
+    ln -sfn "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
+fi
 ```
 
 ### Dependencies

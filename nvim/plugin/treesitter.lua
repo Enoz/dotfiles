@@ -73,10 +73,33 @@ ts.install({
 	"yaml",
 })
 
+local available = {}
+for _, language in ipairs(ts.get_available()) do
+	available[language] = true
+end
+
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "typescriptreact", unpack(ts.get_available()) },
-	callback = function()
-		ts.install({ vim.bo.filetype })
-		vim.treesitter.start()
+	callback = function(args)
+		local language = vim.treesitter.language.get_lang(args.match)
+		if not language or not available[language] then
+			return
+		end
+
+		ts.install({ language }):await(function(err, installed)
+			if err or not installed then
+				return
+			end
+
+			vim.schedule(function()
+				if not vim.api.nvim_buf_is_valid(args.buf) then
+					return
+				end
+
+				local current_language = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+				if current_language == language then
+					vim.treesitter.start(args.buf, language)
+				end
+			end)
+		end)
 	end,
 })
