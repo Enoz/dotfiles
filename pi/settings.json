@@ -5,7 +5,6 @@
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "packages": [
-    "npm:pi-web-access",
-    "npm:pi-subagents-lite"
+    "npm:pi-web-access"
   ]
 }
