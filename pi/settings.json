@@ -4,5 +4,7 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
-  "packages": []
+  "packages": [
+    "npm:pi-subagents"
+  ]
 }
