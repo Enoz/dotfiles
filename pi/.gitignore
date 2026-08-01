@@ -12,6 +12,8 @@ models-store.json
 # === Session history ===
 # JSONL conversation files; churn on every run and may contain secrets pasted in chat
 sessions/
+# Run history log (task hashes, timestamps, durations); churns on every run
+run-history.jsonl
 
 # === Installed packages ===
 # pi install writes here; sources are recorded in settings.json / package.json instead
