@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.83.0",
-  "theme": "carbonfox",
+  "theme": "dark",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
