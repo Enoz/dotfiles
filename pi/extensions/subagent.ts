@@ -344,11 +344,10 @@ export default function (pi: ExtensionAPI) {
 
 			if (isFailed(result)) {
 				const errorMsg = result.errorMessage || result.stderr || getFinalOutput(result.messages) || "(no output)";
-				return {
-					content: [{ type: "text", text: `Subagent ${result.stopReason || "failed"}: ${truncateOutput(errorMsg)}` }],
-					details: { result } satisfies SubagentDetails,
-					isError: true,
-				};
+				// Throw to mark the tool result as failed: pi drops `isError: true` from
+				// returned values (only throw sets it). Details are emptied on thrown
+				// errors, so renderResult falls back to plain text — see its guard.
+				throw new Error(`Subagent ${result.stopReason || "failed"}: ${truncateOutput(errorMsg)}`);
 			}
 
 			return {
@@ -367,12 +366,16 @@ export default function (pi: ExtensionAPI) {
 
 		renderResult(result, { expanded }, theme) {
 			const details = result.details as SubagentDetails | undefined;
-			if (!details) {
+			const r = details?.result;
+			if (!r) {
+				// Fallback for results without structured details (e.g. thrown errors,
+				// where details is empty): show the raw content, with an error marker
+				// when the message-level isError flag is set.
 				const text = result.content[0];
-				return new Text(text?.type === "text" ? text.text : "(no output)", 0, 0);
+				const textStr = text?.type === "text" ? text.text : "(no output)";
+				const prefix = result.isError ? theme.fg("error", "✗ ") : "";
+				return new Text(prefix + textStr, 0, 0);
 			}
-
-			const r = details.result;
 			const failed = isFailed(r);
 			const icon = failed ? theme.fg("error", "✗") : theme.fg("success", "✓");
 			const displayItems = getDisplayItems(r.messages);
