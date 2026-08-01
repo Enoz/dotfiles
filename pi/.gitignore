@@ -1,0 +1,19 @@
+# === Secrets — never commit these ===
+# Provider credentials from /login (auth tokens, API keys)
+auth.json
+credentials.json
+
+# === Machine-local state / caches ===
+# Project trust decisions (contains machine-specific absolute paths)
+trust.json
+# Fetched provider model catalog cache (regenerated automatically)
+models-store.json
+
+# === Session history ===
+# JSONL conversation files; churn on every run and may contain secrets pasted in chat
+sessions/
+
+# === Installed packages ===
+# pi install writes here; sources are recorded in settings.json / package.json instead
+npm/
+git/

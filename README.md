@@ -14,28 +14,25 @@ ln -s -f ~/dotfiles/.bashrc ~/.bashrc
 
 ## tmux
 
-The command below replaces an existing symlink, but refuses to overwrite a real file or directory. Back up or remove an existing `~/.config/tmux` first.
+```bash
+rm -rf "$HOME/.config/tmux"
+ln -s "$HOME/dotfiles/tmux" "$HOME/.config/tmux"
+```
+
+## Pi
 
 ```bash
-mkdir -p "$HOME/.config"
-if [ -e "$HOME/.config/tmux" ] && [ ! -L "$HOME/.config/tmux" ]; then
-    echo "Refusing to overwrite $HOME/.config/tmux" >&2
-else
-    ln -sfn "$HOME/dotfiles/tmux" "$HOME/.config/tmux"
-fi
+rm -rf "$HOME/.pi/agent"
+ln -s "$HOME/dotfiles/pi" "$HOME/.pi/agent"
 ```
+
+Note: `pi/auth.json` (provider credentials) and `pi/sessions/` are gitignored. Run `/login` inside pi on a new machine to re-authenticate.
 
 ## Neovim
 
-The command below replaces an existing symlink, but refuses to overwrite a real file or directory. Back up or remove an existing `~/.config/nvim` first.
-
 ```bash
-mkdir -p "$HOME/.config"
-if [ -e "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
-    echo "Refusing to overwrite $HOME/.config/nvim" >&2
-else
-    ln -sfn "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
-fi
+rm -rf "$HOME/.config/nvim"
+ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 ```
 
 ### Dependencies
