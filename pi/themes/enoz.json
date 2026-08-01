@@ -13,6 +13,7 @@
 		"muted": "#a0a1b0",
 		"output": "#b6b7c4",
 		"dim": "#7a7b8c",
+		"thinking": "#8f86b0",
 		"border": "#3d3d4d",
 		"borderMuted": "#26262f",
 		"pink": "#ff2e88",
@@ -37,7 +38,7 @@
 		"muted": "muted",
 		"dim": "dim",
 		"text": "text",
-		"thinkingText": "muted",
+		"thinkingText": "thinking",
 
 		"selectedBg": "bgSelected",
 		"userMessageBg": "bgElevated",
