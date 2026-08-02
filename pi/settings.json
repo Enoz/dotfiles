@@ -6,7 +6,8 @@
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-web-access",
-    "https://github.com/gsanhueza/pi-token-speed"
+    "https://github.com/gsanhueza/pi-token-speed",
+    "npm:pi-mcp-adapter"
   ],
   "tokenSpeed": {
     "display": "full"
