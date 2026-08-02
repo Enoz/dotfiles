@@ -8,6 +8,10 @@ credentials.json
 trust.json
 # Fetched provider model catalog cache (regenerated automatically)
 models-store.json
+# MCP server discovery cache (tool schemas; regenerated on server change)
+mcp-cache.json
+# MCP onboarding / UI state (one-time setup flags)
+mcp-onboarding.json
 
 # === Session history ===
 # JSONL conversation files; churn on every run and may contain secrets pasted in chat
