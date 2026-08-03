@@ -7,7 +7,8 @@
   "packages": [
     "npm:pi-web-access",
     "https://github.com/gsanhueza/pi-token-speed",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:@alexanderfortin/pi-token-usage"
   ],
   "tokenSpeed": {
     "display": "stats"
