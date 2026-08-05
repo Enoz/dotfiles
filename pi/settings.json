@@ -1,16 +1,18 @@
 {
   "lastChangelogVersion": "0.83.0",
   "theme": "Enoz",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "xhigh",
   "packages": [
     "npm:pi-web-access",
     "https://github.com/gsanhueza/pi-token-speed",
     "npm:pi-mcp-adapter",
-    "npm:@alexanderfortin/pi-token-usage"
+    "npm:@alexanderfortin/pi-token-usage",
+    "npm:pi-codex-image-gen"
   ],
   "tokenSpeed": {
     "display": "stats"
-  }
+  },
+  "hideThinkingBlock": false
 }
