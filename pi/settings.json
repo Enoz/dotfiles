@@ -9,7 +9,8 @@
     "https://github.com/gsanhueza/pi-token-speed",
     "npm:pi-mcp-adapter",
     "npm:@alexanderfortin/pi-token-usage",
-    "npm:pi-codex-image-gen"
+    "npm:pi-codex-image-gen",
+    "npm:pi-subagents-lite"
   ],
   "tokenSpeed": {
     "display": "stats"
