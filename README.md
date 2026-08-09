@@ -22,11 +22,11 @@ ln -s "$HOME/dotfiles/tmux" "$HOME/.config/tmux"
 ## Pi
 
 ```bash
-rm -rf "$HOME/.pi/agent"
-ln -s "$HOME/dotfiles/pi" "$HOME/.pi/agent"
+rm -rf "$HOME/.pi"
+ln -s "$HOME/dotfiles/pi" "$HOME/.pi"
 ```
 
-Note: `pi/auth.json` (provider credentials) and `pi/sessions/` are gitignored. Run `/login` inside pi on a new machine to re-authenticate.
+Pi's agent configuration lives under `pi/agent/`, while extension-level configuration such as `pi/web-search.json` lives directly under `pi/`. This mirrors Pi's expected `~/.pi/agent/` and `~/.pi/web-search.json` paths.
 
 ## Neovim
 
