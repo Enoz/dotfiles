@@ -14,7 +14,7 @@
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform.nvim": {
-      "rev": "3cb1310ee7d036b42a8129a400540bd97773e801",
+      "rev": "fae1eeba4e5539a1f79bce516933da72f4865e0a",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "friendly-snippets": {
