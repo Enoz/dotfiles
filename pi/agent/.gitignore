@@ -8,6 +8,8 @@ credentials.json
 trust.json
 # Fetched provider model catalog cache (regenerated automatically)
 models-store.json
+# AI-generated image outputs (large binaries, regenerated on demand)
+generated-images/
 # MCP server discovery cache (tool schemas; regenerated on server change)
 mcp-cache.json
 # MCP onboarding / UI state (one-time setup flags)
