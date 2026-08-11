@@ -4,6 +4,21 @@ vim.pack.add({
 
 local ts = require("nvim-treesitter")
 
+vim.api.nvim_create_autocmd("PackChanged", {
+	desc = "Keep Tree-sitter parsers synchronized with nvim-treesitter",
+	callback = function(args)
+		local data = args.data
+		if data.spec.name ~= "nvim-treesitter" or data.kind ~= "update" then
+			return
+		end
+
+		local updated = ts.update(nil, { summary = true }):wait(300000)
+		if not updated then
+			vim.notify("Some Tree-sitter parsers failed to update", vim.log.levels.ERROR)
+		end
+	end,
+})
+
 ts.install({
 	"asm",
 	"bash",
@@ -60,7 +75,6 @@ ts.install({
 	"sql",
 	"ssh_config",
 	"terraform",
-	"tmux",
 	"toml",
 	"tsv",
 	"tsx",
