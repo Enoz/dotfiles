@@ -28,6 +28,7 @@ fi
 
 # Used for SSH Agent service
 # systemctl --user enable ssh-agent.service
+# KeePassXC -> SSH_AUTH_SOCK override=/run/user/1000/ssh-agent.socket
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # no pip outside a venv
