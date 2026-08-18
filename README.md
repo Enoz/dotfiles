@@ -9,7 +9,7 @@ ln -s "$HOME/dotfiles/wezterm" "$HOME/.config/wezterm"
 ## Bash
 
 ```bash
-ln -s -f ~/dotfiles/.bashrc ~/.bashrc
+ln -s -f "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 ```
 
 ## tmux
