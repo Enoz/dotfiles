@@ -3,7 +3,7 @@
 ## Wezterm
 
 ```bash
-ln -s -f ~/dotfiles/.wezterm.lua ~/.wezterm.lua
+ln -s "$HOME/dotfiles/wezterm" "$HOME/.config/wezterm"
 ```
 
 ## Bash
