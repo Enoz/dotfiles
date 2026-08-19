@@ -68,7 +68,7 @@ sb() {
         --setenv PATH "/usr/local/bin:/usr/bin:/bin" \
         \
         --chdir "$PWD" \
-        bash
+        "${@:-bash}"
 }
 
 # Used for SSH Agent service
