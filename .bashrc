@@ -28,12 +28,7 @@ fi
 
 # Sandboxing
 
-sb() {
-    podman build -q \
-        -f "$HOME/dotfiles/sandbox/Containerfile" \
-        -t localhost/agent-sandbox \
-        "$HOME/dotfiles" >/dev/null &&
-
+_sb_run() {
     podman run --rm -it \
         --userns=keep-id \
         -v "$PWD:/workspace" \
@@ -41,6 +36,24 @@ sb() {
         -w /workspace \
         localhost/agent-sandbox \
         bash
+}
+
+sb() {
+    podman build -q \
+        -f "$HOME/dotfiles/sandbox/Containerfile" \
+        -t localhost/agent-sandbox \
+        "$HOME/dotfiles" >/dev/null \
+    && _sb_run
+}
+
+sb-fresh() {
+    podman build \
+        --no-cache \
+        --pull=newer \
+        -f "$HOME/dotfiles/sandbox/Containerfile" \
+        -t localhost/agent-sandbox \
+        "$HOME/dotfiles" \
+    && _sb_run
 }
 
 # Used for SSH Agent service

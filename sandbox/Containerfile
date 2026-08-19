@@ -1,5 +1,6 @@
 FROM docker.io/library/archlinux:latest
 
+# Official packages
 RUN pacman -Syu --noconfirm --needed \
         base-devel \
         curl \
@@ -8,13 +9,50 @@ RUN pacman -Syu --noconfirm --needed \
         git \
         neovim \
         ripgrep \
+        sudo \
         tar \
         tree-sitter-cli \
-    && rm -rf /var/cache/pacman/pkg/* \
-    && install -d -m 0777 /home/sb/.cache
+    && rm -rf /var/cache/pacman/pkg/*
 
+# Temporary AUR build user.
+# Restrict sudo to pacman only.
+RUN useradd --create-home --no-log-init aur \
+    && echo 'aur ALL=(root) NOPASSWD: /usr/bin/pacman' \
+        > /etc/sudoers.d/aur \
+    && chmod 0440 /etc/sudoers.d/aur
+
+# Bootstrap yay.
+RUN runuser -u aur -- \
+        git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin \
+    && runuser -u aur -- \
+        bash -c 'cd /tmp/yay-bin && makepkg -si --noconfirm --needed' \
+    && rm -rf /tmp/yay-bin
+
+# Add/remove AUR packages here.
+ARG AUR_PACKAGES="pi-coding-agent-bin"
+
+RUN runuser -u aur -- \
+        yay -S \
+            --noconfirm \
+            --needed \
+            --answerclean None \
+            --answerdiff None \
+            --answeredit None \
+            ${AUR_PACKAGES} \
+    && rm -rf \
+        /home/aur/.cache \
+        /var/cache/pacman/pkg/* \
+    && rm -f /etc/sudoers.d/aur \
+    && userdel --remove aur
+
+# Runtime directories.
+RUN install -d -m 0777 \
+        /home/sb/.local \
+        /home/sb/.cache
+
+# Configuration baked into the image.
 COPY nvim /home/sb/.config/nvim
 
 ENV HOME=/home/sb
-ENV PATH="/home/sb/.local/bin:${PATH}"
+ENV PATH=/home/sb/.local/bin:${PATH}
 ENV GIT_CONFIG_GLOBAL=/home/sb/.local/gitconfig
