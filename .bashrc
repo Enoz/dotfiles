@@ -26,6 +26,17 @@ if command -v fzf >/dev/null 2>&1; then
     eval "$(fzf --bash)"
 fi
 
+# Sandboxing
+
+sb() {
+    podman run --rm -it \
+        --userns=keep-id \
+        -v "$PWD:/workspace" \
+        -w /workspace \
+        docker.io/library/archlinux:latest \
+        bash
+}
+
 # Used for SSH Agent service
 # systemctl --user enable ssh-agent.service
 # KeePassXC -> SSH_AUTH_SOCK override=/run/user/1000/ssh-agent.socket
