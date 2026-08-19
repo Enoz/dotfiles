@@ -28,32 +28,47 @@ fi
 
 # Sandboxing
 
-_sb_run() {
-    podman run --rm -it \
-        --userns=keep-id \
-        -v "$PWD:/workspace" \
-        -v agent-sandbox-local:/home/sb/.local \
-        -w /workspace \
-        localhost/agent-sandbox \
-        bash
-}
-
 sb() {
-    podman build -q \
-        -f "$HOME/dotfiles/sandbox/Containerfile" \
-        -t localhost/agent-sandbox \
-        "$HOME/dotfiles" >/dev/null \
-    && _sb_run
-}
-
-sb-fresh() {
-    podman build \
-        --no-cache \
-        --pull=newer \
-        -f "$HOME/dotfiles/sandbox/Containerfile" \
-        -t localhost/agent-sandbox \
-        "$HOME/dotfiles" \
-    && _sb_run
+    bwrap \
+        --unshare-all \
+        --share-net \
+        --die-with-parent \
+        --clearenv \
+        \
+        --ro-bind /usr /usr \
+        --ro-bind /etc /etc \
+        --ro-bind /var /var \
+        --ro-bind-try /opt /opt \
+        --symlink usr/bin /bin \
+        --symlink usr/bin /sbin \
+        --symlink usr/lib /lib \
+        --symlink usr/lib /lib64 \
+        \
+        --proc /proc \
+        --dev /dev \
+        --tmpfs /tmp \
+        --tmpfs /run \
+        \
+        --dir /home \
+        --dir "$HOME" \
+        \
+        --bind "$PWD" "$PWD" \
+        --bind "$HOME/.pi" "$HOME/.pi" \
+        \
+        --ro-bind "$HOME/.config/nvim" "$HOME/.config/nvim" \
+        --bind-try "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
+        --bind-try "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
+        --bind-try "$HOME/.cache/nvim" "$HOME/.cache/nvim" \
+        \
+        --setenv HOME "$HOME" \
+        --setenv USER "$USER" \
+        --setenv LOGNAME "$USER" \
+        --setenv SHELL /bin/bash \
+        --setenv TERM "${TERM:-xterm-256color}" \
+        --setenv PATH "/usr/local/bin:/usr/bin:/bin" \
+        \
+        --chdir "$PWD" \
+        bash
 }
 
 # Used for SSH Agent service
