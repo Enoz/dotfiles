@@ -53,9 +53,9 @@ sb() {
         --dir "$HOME" \
         \
         --bind "$PWD" "$PWD" \
-        --bind "$HOME/.pi" "$HOME/.pi" \
+        --bind-try "$HOME/.pi" "$HOME/.pi" \
         \
-        --ro-bind "$HOME/.config/nvim" "$HOME/.config/nvim" \
+        --ro-bind-try "$HOME/.config/nvim" "$HOME/.config/nvim" \
         --bind-try "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
         --bind-try "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
         --bind-try "$HOME/.cache/nvim" "$HOME/.cache/nvim" \
