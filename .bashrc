@@ -29,11 +29,17 @@ fi
 # Sandboxing
 
 sb() {
+    podman build -q \
+        -f "$HOME/dotfiles/sandbox/Containerfile" \
+        -t localhost/agent-sandbox \
+        "$HOME/dotfiles" >/dev/null &&
+
     podman run --rm -it \
         --userns=keep-id \
         -v "$PWD:/workspace" \
+        -v agent-sandbox-local:/home/sb/.local \
         -w /workspace \
-        docker.io/library/archlinux:latest \
+        localhost/agent-sandbox \
         bash
 }
 

@@ -26,8 +26,6 @@ rm -rf "$HOME/.pi"
 ln -s "$HOME/dotfiles/pi" "$HOME/.pi"
 ```
 
-Pi's agent configuration lives under `pi/agent/`, while extension-level configuration such as `pi/web-search.json` lives directly under `pi/`. This mirrors Pi's expected `~/.pi/agent/` and `~/.pi/web-search.json` paths.
-
 ## Neovim
 
 ```bash
