@@ -1,5 +1,11 @@
 # dotfiles
 
+## Foot
+
+```bash
+ln -s "$HOME/dotfiles/foot" "$HOME/.config/foot"
+```
+
 ## Wezterm
 
 ```bash
