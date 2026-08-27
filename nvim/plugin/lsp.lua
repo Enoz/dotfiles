@@ -1,6 +1,10 @@
 vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 })
+
+require("mason").setup()
 
 -- Lua
 vim.lsp.config("lua_ls", {
@@ -39,25 +43,15 @@ vim.lsp.config("lua_ls", {
 })
 
 local servers = {
-	"lua_ls",
-	"gopls",
 	"ts_ls",
+	"lua_ls",
 	"pylsp",
-	"jsonls",
-	"cssls",
-	"html",
-	"eslint",
-	"terraformls",
-	"yamlls",
-	"svelte",
-	"clangd",
-	"omnisharp",
-	"lemminx",
 }
 
-for _, server in ipairs(servers) do
-	vim.lsp.enable(server)
-end
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_enable = servers,
+})
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
