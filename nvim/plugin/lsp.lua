@@ -46,12 +46,10 @@ local servers = {
 	"ts_ls",
 	"lua_ls",
 	"pylsp",
-	"csharp_ls",
 }
 
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	automatic_enable = servers,
 })
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
