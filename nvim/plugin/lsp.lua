@@ -46,6 +46,7 @@ local servers = {
 	"ts_ls",
 	"lua_ls",
 	"pylsp",
+	"gopls",
 }
 
 require("mason-lspconfig").setup({
