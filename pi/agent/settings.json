@@ -1,16 +1,16 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "theme": "Enoz",
   "externalEditor": "nvim",
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "deepseek-flash",
   "defaultThinkingLevel": "xhigh",
   "packages": [
     "npm:pi-web-access",
-    "https://github.com/gsanhueza/pi-token-speed",
     "npm:pi-mcp-adapter",
     "npm:@alexanderfortin/pi-token-usage",
-    "npm:pi-subagents-lite"
+    "npm:pi-subagents-lite",
+    "npm:@monotykamary/pi-tps"
   ],
   "tokenSpeed": {
     "display": "stats"
