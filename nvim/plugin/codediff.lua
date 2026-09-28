@@ -3,6 +3,9 @@ vim.pack.add({
 })
 
 require("codediff").setup({
+	diff = {
+		layout = "inline",
+	},
 	explorer = {
 		view_mode = "tree",
 	},
