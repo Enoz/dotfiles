@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "Enoz",
   "externalEditor": "nvim",
   "defaultProvider": "deepseek",
@@ -7,7 +7,6 @@
   "defaultThinkingLevel": "xhigh",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-mcp-adapter",
     "npm:@alexanderfortin/pi-token-usage",
     "npm:pi-subagents-lite",
     "npm:@monotykamary/pi-tps"
@@ -15,5 +14,8 @@
   "tokenSpeed": {
     "display": "stats"
   },
-  "hideThinkingBlock": false
+  "hideThinkingBlock": false,
+  "extensions": [
+    "-builtin:mcp"
+  ]
 }
