@@ -67,6 +67,11 @@ sb() {
         --setenv LOGNAME "$USER" \
         --setenv SHELL /bin/bash \
         --setenv TERM "${TERM:-xterm-256color}" \
+        ${TMUX:+--setenv TMUX "$TMUX"} \
+        ${TERM_PROGRAM:+--setenv TERM_PROGRAM "$TERM_PROGRAM"} \
+        ${TERM_PROGRAM_VERSION:+--setenv TERM_PROGRAM_VERSION "$TERM_PROGRAM_VERSION"} \
+        ${COLORTERM:+--setenv COLORTERM "$COLORTERM"} \
+        ${LANG:+--setenv LANG "$LANG"} \
         --setenv PATH "/usr/local/bin:/usr/bin:/bin" \
         \
         --chdir "$PWD" \
