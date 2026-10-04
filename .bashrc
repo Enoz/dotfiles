@@ -54,6 +54,8 @@ sb() {
         \
         --bind "$PWD" "$PWD" \
         --bind-try "$HOME/.pi" "$HOME/.pi" \
+        --bind-try "$HOME/.claude" "$HOME/.claude" \
+        --bind-try "$HOME/.claude.json" "$HOME/.claude.json" \
         \
         --ro-bind-try "$HOME/.config/nvim" "$HOME/.config/nvim" \
         --bind-try "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
